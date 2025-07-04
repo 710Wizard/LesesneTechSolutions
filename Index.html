@@ -25,6 +25,7 @@
         }
         ::-webkit-scrollbar-thumb:hover {
             background: #555;
+            border-radius: 10px;
         }
         /* Active navigation link styling */
         .nav-link.active {
@@ -117,7 +118,8 @@
         </div>
     </header>
 
-    <main class="pt-16"> <section id="home" class="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20 md:py-32 overflow-hidden">
+    <main class="pt-16">
+        <section id="home" class="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20 md:py-32 overflow-hidden">
             <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('https://placehold.co/1920x1080/0000FF/FFFFFF?text=Global+Tech+Background');"></div>
             <div class="container mx-auto px-4 relative z-10 text-center">
                 <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 animate-fade-in-up" data-lang-key="homeHeadline">
@@ -251,8 +253,8 @@
                 <p class="text-lg md:text-xl mb-10 max-w-2xl mx-auto opacity-90" data-lang-key="contactBody">
                     Get in touch today for a personalized consultation. We're here to provide clear, lasting solutions.
                 </p>
-                <form class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-lg text-gray-800">
-                    <div class="mb-6">
+                <form class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-lg text-gray-800"
+                      action="https://formspree.io/f/yourformidhere" method="POST"> <div class="mb-6">
                         <label for="name" class="block text-left text-sm font-medium text-gray-700 mb-2" data-lang-key="contactNameLabel">Name</label>
                         <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" data-lang-key="contactNamePlaceholder" placeholder="Your Name" required>
                     </div>
@@ -277,26 +279,21 @@
         <div class="container mx-auto px-4 text-center text-sm">
             <p data-lang-key="footerCopyright">&copy; 2024 Global Remote Tech Solutions. All rights reserved.</p>
             <p class="mt-2" data-lang-key="footerTagline">Designed with expertise and care.</p>
-        <div id="scheduling-modal" class="modal-overlay hidden">
+        </div>
+    </footer>
+
+    <div id="scheduling-modal" class="modal-overlay">
         <div class="modal-content">
             <button class="close-button" id="close-modal-button">&times;</button>
             <h3 class="text-2xl font-bold text-gray-900 mb-4" data-lang-key="modalHeadline">Schedule Your Consultation</h3>
             <p class="text-gray-700 mb-6" data-lang-key="modalInstructions">
                 To book a session, please use our online scheduling tool below.
-                <br>
-                <!-- Calendly inline widget begin -->
-<div class="calendly-inline-widget" data-url="https://calendly.com/jameslesesne" style="min-width:320px;height:700px;"></div>
-<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-<!-- Calendly inline widget end -->
-                <br><br>
-
             </p>
-            <div id="scheduling-embed-container" class="w-full h-[600px] bg-gray-100 border border-gray-300 rounded-md flex items-center justify-center text-gray-500 text-center">
-                <p data-lang-key="modalEmbedPlaceholder">Your scheduling tool will appear here once you paste its embed code into the HTML file.</p>
+            <div class="calendly-inline-widget" data-url="https://calendly.com/jameslesesne" style="min-width:320px;height:700px;"></div>
             </div>
-        </div>
     </div>
 
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
     <script>
         // Language content object
@@ -368,8 +365,7 @@
                 footerCopyright: "&copy; 2024 Global Remote Tech Solutions. All rights reserved.",
                 footerTagline: "Designed with expertise and care.",
                 modalHeadline: "Schedule Your Consultation",
-                modalInstructions: "To book a session, please use our online scheduling tool below.<br><br>**Paste your Zoho Bookings, Calendly, or other scheduling tool embed code here.**<br><br>For example, if using Calendly, it might look something like this:",
-                modalEmbedPlaceholder: "Your scheduling tool will appear here once you paste its embed code into the HTML file."
+                modalInstructions: "To book a session, please use our online scheduling tool below."
             },
             pt: {
                 pageTitle: "Soluções Tecnológicas Remotas Globais",
@@ -413,19 +409,19 @@
                 servicesCategory5Title: "TI Gerenciada & Operações",
                 servicesCategory5Item1: "Serviços de TI Gerenciados",
                 servicesCategory5Item2: "Gerenciamento de Fornecedores",
-                servicesCategory5Item3: "Relatórios e Automação de TI",
-                servicesCategory6Title: "Soluções de Nuvem & Rede",
-                servicesCategory6Item1: "Serviços de Computação em Nuvem",
-                servicesCategory6Item2: "Gerenciamento de Rede",
-                servicesCategory6Item3: "VoIP e Comunicações Unificadas",
-                servicesCategory7Title: "Desenvolvimento de Software",
-                servicesCategory7Item1: "Desenvolvimento de Software e Aplicativos Personalizados",
-                servicesCategory8Title: "Gerenciamento de Dados & Treinamento",
-                servicesCategory8Item1: "Backup e Recuperação de Dados",
-                servicesCategory8Item2: "Gerenciamento de Dispositivos Móveis e Rede",
-                servicesCategory8Item3: "Configuração de Backup Automático de Fotos",
-                servicesCategory8Item4: "Configuração e Instalação de Novos Dispositivos",
-                servicesCategory8Item5: "Treinamento Tecnológico Personalizado",
+                servicesCategory5Item3: "IT Reporting & Automation",
+                servicesCategory6Title: "Cloud & Network Solutions",
+                servicesCategory6Item1: "Cloud Computing Services",
+                servicesCategory6Item2: "Network Management",
+                servicesCategory6Item3: "VoIP & Unified Communications",
+                servicesCategory7Title: "Software Development",
+                servicesCategory7Item1: "Custom Software & Application Development",
+                servicesCategory8Title: "Data Management & Training",
+                servicesCategory8Item1: "Data Backup & Recovery",
+                servicesCategory8Item2: "Mobile Device & Network Management",
+                servicesCategory8Item3: "Automatic Photo Backup Setup",
+                servicesCategory8Item4: "New Device Setup & Configuration",
+                servicesCategory8Item5: "Personalized Technology Training",
                 contactHeadline: "Pronto para Resolver Seus Desafios Tecnológicos?",
                 contactBody: "Entre em contato hoje para uma consulta personalizada. Estamos aqui para fornecer soluções claras e duradouras.",
                 contactNameLabel: "Nome",
@@ -436,10 +432,9 @@
                 contactMessagePlaceholder: "Conte-nos sobre suas necessidades tecnológicas...",
                 contactSubmitButton: "Enviar Mensagem",
                 footerCopyright: "&copy; 2024 Soluções Tecnológicas Remotas Globais. Todos os direitos reservados.",
-                footerTagline: "Projetado com experiência e cuidado.",
+                footerTagline: "Desenvolvido com expertise e cuidado.",
                 modalHeadline: "Agende Sua Consultoria",
-                modalInstructions: "Para agendar uma sessão, use nossa ferramenta de agendamento online abaixo.<br><br>**Cole seu código de incorporação do Zoho Bookings, Calendly ou outra ferramenta de agendamento aqui.**<br><br>Por exemplo, se estiver usando o Calendly, pode ser algo assim:",
-                modalEmbedPlaceholder: "Sua ferramenta de agendamento aparecerá aqui assim que você colar seu código de incorporação no arquivo HTML."
+                modalInstructions: "Para agendar uma sessão, por favor use nossa ferramenta de agendamento online abaixo."
             },
             es: {
                 pageTitle: "Soluciones Tecnológicas Remotas Globales",
@@ -448,191 +443,178 @@
                 navServices: "Servicios",
                 navContact: "Contacto",
                 homeHeadline: "Soporte Técnico Remoto de Clase Mundial.<br class='hidden md:block'>Más de 15 Años de Experiencia en 10 Países.",
-                homeBody: "Deja de luchar con la tecnología. Obtén soporte individual y de primer nivel de un experto que ha resuelto con éxito problemas técnicos complejos para clientes en todo el mundo, de forma totalmente remota. Desde Nueva York hasta São Paulo, ofrecemos soluciones claras y duraderas para tu hogar y negocio.",
+                homeBody: "Deja de luchar con la tecnología. Obtén soporte individual de primera de un experto que ha resuelto con éxito problemas técnicos complejos para clientes en todo el mundo, de forma totalmente remota. Desde Nueva York hasta São Paulo, ofrecemos soluciones claras y duraderas para tu hogar y negocio.",
                 homeScheduleButton: "Agenda Tu Consulta",
-                homeExpertise: "Nuestra Experiencia: Consultoría Estratégica de TI | Creación de Sitios Web y SEO | Actualizaciones de Hardware | Soporte Apple y Microsoft",
-                homePayments: "Pagos: Aceptamos con orgullo las principales tarjetas de crédito y opciones de pago locales para nuestros clientes globales.",
+                homeExpertise: "Nuestra Experiencia: Consultoría Estratégica de TI | Diseño Web Personalizado y SEO | Actualizaciones de Hardware | Soporte Apple y Microsoft",
+                homePayments: "Pagos: Aceptamos las principales tarjetas de crédito y opciones de pago locales para nuestros clientes globales.",
                 aboutHeadline: "Un Experto Global, Tu Solución Local.",
-                aboutBody1: "Durante más de 15 años, me he especializado en una cosa: proporcionar soporte de TI de nivel experto de forma totalmente remota. Este viaje me ha permitido asociarme con clientes en más de 10 países, ayudándolos a superar obstáculos técnicos y alcanzar sus objetivos a miles de kilómetros de distancia.",
-                aboutBody2: "Mi experiencia no es solo técnica; se trata de comprender diferentes necesidades, comunicarse claramente entre culturas y construir una confianza que trasciende fronteras. Ya sea que esté construyendo un sitio web para un cliente en Europa, actualizando una Mac para un creativo en Australia o brindando estrategia de TI para una empresa en los EE. UU., mi compromiso es el mismo: ofrecer soluciones efectivas, confiables y personalizadas.",
-                servicesMainHeadline: "Soluciones Digitales y Tecnológicas Completas",
-                servicesIntro: "Ofrecemos un espectro completo de soporte remoto de TI, consultoría y soluciones digitales para individuos y empresas en todo el mundo. Nuestra entrega de servicio flexible incluye **asistencia remota conveniente, reparaciones eficientes en el sitio y servicios integrales en la tienda** para satisfacer sus necesidades únicas.",
-                servicesCategory1Title: "Soporte y Solución de Problemas",
+                aboutBody1: "Durante más de 15 años, me he especializado en una cosa: proporcionar soporte de TI de nivel experto de forma totalmente remota. Este viaje me ha permitido asociarme con clientes en más de 10 países, ayudándolos a superar obstáculos técnicos y alcanzar sus objetivos desde miles de kilómetros de distancia.",
+                aboutBody2: "Mi experiencia no es solo técnica; se trata de comprender diferentes necesidades, comunicarse claramente entre culturas y construir una confianza que trasciende fronteras. Ya sea que esté construyendo un sitio web para un cliente en Europa, actualizando una Mac para un creativo en Australia o proporcionando una estrategia de TI para una empresa en EE. UU., mi compromiso es el mismo: ofrecer soluciones efectivas, confiables y personalizadas.",
+                servicesMainHeadline: "Soluciones Digitales y Tecnológicas Integrales",
+                servicesIntro: "Ofrecemos un espectro completo de soporte de TI remoto, consultoría y soluciones digitales tanto para individuos como para empresas en todo el mundo. Nuestra entrega de servicio flexible incluye **asistencia remota conveniente, reparaciones eficientes in situ y servicios completos en tienda** para satisfacer sus necesidades únicas.",
+                servicesCategory1Title: "Soporte TI y Resolución de Problemas",
                 servicesCategory1Item1: "Soporte de Mesa de Ayuda",
-                servicesCategory1Item2: "Soporte para PC, Mac, Laptop y Desktop",
-                servicesCategory1Item3: "Soporte para Móviles y Tablets",
-                servicesCategory1Item4: "Soporte para Software y Aplicaciones (Microsoft 365, Adobe)",
-                servicesCategory1Item5: "Seguridad y Protección de Datos (Eliminación de Virus, Seguridad Online)",
-                servicesCategory1Item6: "Solución de Problemas de Impresoras y Dispositivos",
-                servicesCategory1Item7: "Soluciones de Software Comunes",
-                servicesCategory1Item8: "Reparación y Diagnóstico de Hardware (En el Sitio y en Tienda)",
-                servicesCategory2Title: "Actualizaciones y Rendimiento del Sistema",
+                servicesCategory1Item2: "Soporte para PC, Mac, Portátiles y Sobremesa",
+                servicesCategory1Item3: "Soporte para Móviles y Tabletas",
+                servicesCategory1Item4: "Soporte de Software y Aplicaciones (Microsoft 365, Adobe)",
+                servicesCategory1Item5: "Seguridad y Protección de Datos (Eliminación de Virus, Seguridad en Línea)",
+                servicesCategory1Item6: "Resolución de Problemas de Impresoras y Dispositivos",
+                servicesCategory1Item7: "Soluciones Comunes de Software",
+                servicesCategory1Item8: "Reparación y Diagnóstico de Hardware (In Situ y en Tienda)",
+                servicesCategory2Title: "Actualizaciones y Optimización del Sistema",
                 servicesCategory2Item1: "Actualizaciones de Hardware (RAM, SSD, Gráficos)",
                 servicesCategory2Item2: "Actualizaciones de Software y SO",
-                servicesCategory2Item3: "Optimización de Dispositivos y Ajustes",
-                servicesCategory2Item4: "Aumento de Velocidad del Ordenador",
+                servicesCategory2Item3: "Optimización y Ajustes de Dispositivos",
+                servicesCategory2Item4: "Aumento de Velocidad del Computador",
                 servicesCategory3Title: "Presencia Web y Crecimiento Digital",
-                servicesCategory3Item1: "Creación de Sitios Web Personalizados",
+                servicesCategory3Item1: "Construcción de Sitios Web Personalizados",
                 servicesCategory3Item2: "Optimización para Motores de Búsqueda (SEO)",
                 servicesCategory3Item3: "Mantenimiento y Seguridad de Sitios Web",
                 servicesCategory4Title: "Consultoría Estratégica de TI",
                 servicesCategory4Item1: "Consultoría de TI y Tecnología",
-                servicesCategory4Item2: "Construcción de PC Personalizados",
+                servicesCategory4Item2: "Construcción de PCs a Medida",
                 servicesCategory4Item3: "Configuración Profesional de Streaming",
                 servicesCategory4Item4: "Planificación de Continuidad del Negocio y Recuperación ante Desastres",
-                servicesCategory5Title: "TI Gestionada y Operaciones",
+                servicesCategory5Title: "Gestión de TI y Operaciones",
                 servicesCategory5Item1: "Servicios de TI Gestionados",
                 servicesCategory5Item2: "Gestión de Proveedores",
                 servicesCategory5Item3: "Informes y Automatización de TI",
-                servicesCategory6Title: "Soluciones de Nube y Red",
+                servicesCategory6Title: "Soluciones en la Nube y de Red",
                 servicesCategory6Item1: "Servicios de Computación en la Nube",
                 servicesCategory6Item2: "Gestión de Redes",
                 servicesCategory6Item3: "VoIP y Comunicaciones Unificadas",
                 servicesCategory7Title: "Desarrollo de Software",
                 servicesCategory7Item1: "Desarrollo de Software y Aplicaciones Personalizadas",
-                servicesCategory8Title: "Gestión de Datos y Formación",
+                servicesCategory8Title: "Gestión de Datos y Capacitación",
                 servicesCategory8Item1: "Copia de Seguridad y Recuperación de Datos",
                 servicesCategory8Item2: "Gestión de Dispositivos Móviles y Redes",
                 servicesCategory8Item3: "Configuración de Copia de Seguridad Automática de Fotos",
-                servicesCategory8Item4: "Configuración e Instalación de Nuevos Dispositivos",
-                servicesCategory8Item5: "Formación Tecnológica Personalizada",
+                servicesCategory8Item4: "Configuración de Nuevos Dispositivos",
+                servicesCategory8Item5: "Capacitación Tecnológica Personalizada",
                 contactHeadline: "¿Listo para Resolver Tus Desafíos Tecnológicos?",
-                contactBody: "Ponte en contacto hoy para una consulta personalizada. Estamos aquí para ofrecerte soluciones claras y duraderas.",
+                contactBody: "Ponte en contacto hoy para una consulta personalizada. Estamos aquí para proporcionarte soluciones claras y duraderas.",
                 contactNameLabel: "Nombre",
                 contactNamePlaceholder: "Tu Nombre",
                 contactEmailLabel: "Correo Electrónico",
                 contactEmailPlaceholder: "tu@ejemplo.com",
                 contactMessageLabel: "Mensaje",
-                contactMessagePlaceholder: "Cuéntanos sobre tus necesidades tecnológicas...",
+                contactMessagePlaceholder: "Cuéntanos tus necesidades tecnológicas...",
                 contactSubmitButton: "Enviar Mensaje",
                 footerCopyright: "&copy; 2024 Soluciones Tecnológicas Remotas Globales. Todos los derechos reservados.",
                 footerTagline: "Diseñado con experiencia y cuidado.",
                 modalHeadline: "Agenda Tu Consulta",
-                modalInstructions: "Para reservar una sesión, utiliza nuestra herramienta de programación en línea a continuación.<br><br>**Pega aquí el código de inserción de Zoho Bookings, Calendly u otra herramienta de programación.**<br><br>Por ejemplo, si usas Calendly, podría verse así:",
-                modalEmbedPlaceholder: "Tu herramienta de programación aparecerá aquí una vez que pegues su código de inserción en el archivo HTML."
+                modalInstructions: "Para reservar una sesión, por favor utiliza nuestra herramienta de programación en línea a continuación."
             }
         };
 
-        // Function to update content based on language
-        function updateContent(lang) {
-            const content = websiteContent[lang];
-            if (!content) return;
+        let currentLang = 'en'; // Default language
 
-            // Update elements with data-lang-key attribute
+        function applyLanguage(lang) {
+            currentLang = lang;
             document.querySelectorAll('[data-lang-key]').forEach(element => {
-                const key = element.getAttribute('data-lang-key');
-                if (content[key]) {
-                    // Handle specific cases like innerHTML for headlines with <br>
-                    if (key === 'homeHeadline' || key === 'modalInstructions' || key === 'servicesIntro') {
-                        element.innerHTML = content[key];
+                const key = element.dataset.langKey;
+                if (websiteContent[lang] && websiteContent[lang][key]) {
+                    // For specific elements like title, placeholder
+                    if (element.tagName === 'TITLE') {
+                        element.textContent = websiteContent[lang][key];
+                    } else if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = websiteContent[lang][key];
                     } else {
-                        element.textContent = content[key];
+                        element.innerHTML = websiteContent[lang][key];
                     }
                 }
             });
-
-            // Handle placeholder attributes
-            document.querySelector('#name').setAttribute('placeholder', content.contactNamePlaceholder);
-            document.querySelector('#email').setAttribute('placeholder', content.contactEmailPlaceholder);
-            document.querySelector('#message').setAttribute('placeholder', content.contactMessagePlaceholder);
-
-            // Update active language button styling
             document.querySelectorAll('.lang-button').forEach(button => {
                 if (button.dataset.lang === lang) {
-                    button.classList.add('bg-blue-600', 'text-white');
+                    button.classList.add('bg-blue-500', 'text-white');
                     button.classList.remove('bg-gray-200', 'hover:bg-gray-300');
                 } else {
-                    button.classList.remove('bg-blue-600', 'text-white');
+                    button.classList.remove('bg-blue-500', 'text-white');
                     button.classList.add('bg-gray-200', 'hover:bg-gray-300');
                 }
             });
-
-            // Save language preference
-            localStorage.setItem('selectedLanguage', lang);
         }
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+        // Apply default language on load
+        document.addEventListener('DOMContentLoaded', () => {
+            applyLanguage(currentLang);
 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+            // Event listeners for language buttons
+            document.querySelectorAll('.lang-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    applyLanguage(button.dataset.lang);
+                });
+            });
+
+            // Smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu after clicking a link
+                    if (mobileMenu.classList.contains('block')) {
+                        mobileMenu.classList.remove('block');
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('block');
+            });
+
+            // Highlight active nav link on scroll
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 80; // Adjust for fixed header
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
                 });
 
-                // Close mobile menu if open
-                const mobileMenu = document.getElementById('mobile-menu');
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
-
-        // Mobile menu toggle functionality
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Highlight active navigation link on scroll
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 70; // Adjust for fixed header height
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-                    current = section.getAttribute('id');
-                }
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
             });
 
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
-                }
+            // **MODAL LOGIC ADDED/FIXED HERE**
+            const scheduleButton = document.getElementById('schedule-button');
+            const schedulingModal = document.getElementById('scheduling-modal');
+            const closeModalButton = document.getElementById('close-modal-button');
+
+            scheduleButton.addEventListener('click', () => {
+                schedulingModal.classList.add('show');
             });
-        });
 
-        // Language switcher event listeners
-        document.querySelectorAll('.lang-button').forEach(button => {
-            button.addEventListener('click', () => {
-                updateContent(button.dataset.lang);
-            });
-        });
-
-        // Scheduling Modal functionality
-        const scheduleButton = document.getElementById('schedule-button');
-        const schedulingModal = document.getElementById('scheduling-modal');
-        const closeModalButton = document.getElementById('close-modal-button');
-
-        scheduleButton.addEventListener('click', () => {
-            schedulingModal.classList.add('show');
-        });
-
-        closeModalButton.addEventListener('click', () => {
-            schedulingModal.classList.remove('show');
-        });
-
-        // Close modal when clicking outside
-        schedulingModal.addEventListener('click', (e) => {
-            if (e.target === schedulingModal) {
+            closeModalButton.addEventListener('click', () => {
                 schedulingModal.classList.remove('show');
-            }
-        });
+            });
 
-        // Initial content load based on saved preference or default to English
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('selectedLanguage') || 'en'; // Default to English
-            updateContent(savedLang);
-            // Set 'home' as active initially
-            document.querySelector('a[href="#home"]').classList.add('active');
-        });
+            // Close modal when clicking outside of it
+            schedulingModal.addEventListener('click', (e) => {
+                if (e.target === schedulingModal) {
+                    schedulingModal.classList.remove('show');
+                }
+            });
 
+            // **FORM SUBMISSION LOGIC - No changes needed here, as Formspree handles it.**
+            // The form will now submit to Formspree directly via its action attribute.
+        });
     </script>
 </body>
 </html>
