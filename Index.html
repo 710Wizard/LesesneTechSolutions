@@ -593,30 +593,24 @@
             });
 
             // **MODAL LOGIC ADDED/FIXED HERE**
-            #scheduling-modal { display: none; /* or visibility: hidden; */ }
-#scheduling-modal.show { display: block; /* or visibility: visible; */ }
-        
-            scheduleButton.addEventListener('click', () => {
-                schedulingModal.classList.add('show');
-            });
+const scheduleButton = document.getElementById('schedule-button');
+const schedulingModal = document.getElementById('scheduling-modal');
+const closeModalButton = document.getElementById('close-modal-button');
 
-            closeModalButton.addEventListener('click', () => {
-                schedulingModal.classList.remove('show');
-            });
-<button id="schedule-button">Schedule</button>
+scheduleButton.addEventListener('click', () => {
+    schedulingModal.classList.add('show');
+});
 
-<div id="scheduling-modal" class="modal">
-  <div class="modal-content">
-    <button id="close-modal-button">Close</button>
-    <!-- Calendly widget or content goes here -->
-  </div>
-</div>
-            // Close modal when clicking outside of it
-            schedulingModal.addEventListener('click', (e) => {
-                if (e.target === schedulingModal) {
-                    schedulingModal.classList.remove('show');
-                }
-            });
+closeModalButton.addEventListener('click', () => {
+    schedulingModal.classList.remove('show');
+});
+
+// Close modal when clicking outside of it
+schedulingModal.addEventListener('click', (e) => {
+    if (e.target === schedulingModal) {
+        schedulingModal.classList.remove('show');
+    }
+});
 
             // **FORM SUBMISSION LOGIC - No changes needed here, as Formspree handles it.**
             // The form will now submit to Formspree directly via its action attribute.
