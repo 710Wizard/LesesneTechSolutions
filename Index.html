@@ -32,6 +32,12 @@
             font-weight: 600;
             color: #2563eb; /* Blue-600 */
         }
+        /* Optional: Add some styling for form focus */
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #2563eb; /* Blue-600 */
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3); /* Blue-600 with opacity */
+        }
     </style>
 </head>
 <body>
@@ -45,7 +51,7 @@
                 <a href="#home" class="nav-link text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-md hover:bg-gray-100" data-lang-key="navHome">Home</a>
                 <a href="#about" class="nav-link text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-md hover:bg-gray-100" data-lang-key="navAbout">About Me</a>
                 <a href="#services" class="nav-link text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-md hover:bg-gray-100" data-lang-key="navServices">Services</a>
-                <div class="flex space-x-2 ml-4">
+                <a href="#support" class="nav-link text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-md hover:bg-gray-100" data-lang-key="navSupport">Support</a> <div class="flex space-x-2 ml-4">
                     <button class="lang-button px-3 py-1 rounded-md text-sm font-medium bg-gray-200 hover:bg-gray-300 transition-colors" data-lang="en">EN</button>
                     <button class="lang-button px-3 py-1 rounded-md text-sm font-medium bg-gray-200 hover:bg-gray-300 transition-colors" data-lang="pt">PT</button>
                     <button class="lang-button px-3 py-1 rounded-md text-sm font-medium bg-gray-200 hover:bg-gray-300 transition-colors" data-lang="es">ES</button>
@@ -68,7 +74,7 @@
             <a href="#home" class="nav-link block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md" data-lang-key="navHome">Home</a>
             <a href="#about" class="nav-link block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md" data-lang-key="navAbout">About Me</a>
             <a href="#services" class="nav-link block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md" data-lang-key="navServices">Services</a>
-            </div>
+            <a href="#support" class="nav-link block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md" data-lang-key="navSupport">Support</a> </div>
     </header>
 
     <main class="pt-16">
@@ -208,7 +214,101 @@
             </div>
         </section>
 
-        </main>
+        <section id="support" class="py-16 md:py-24 bg-blue-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12" data-lang-key="supportHeadline">
+                    Get In Touch & Get Support
+                </h2>
+
+                <div class="bg-white p-8 rounded-xl shadow-lg grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6" data-lang-key="whatsappFormTitle">
+                            Contact Us via WhatsApp
+                        </h3>
+                        <p class="text-gray-700 mb-6" data-lang-key="whatsappFormIntro">
+                            Fill out the form below and we'll send your message directly to our WhatsApp, allowing us to connect quickly!
+                        </p>
+                        <form id="whatsappForm" class="space-y-4">
+                            <div>
+                                <label for="wa-name" class="block text-gray-700 text-sm font-bold mb-2" data-lang-key="formNameLabel">Name:</label>
+                                <input type="text" id="wa-name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:shadow-outline focus:border-blue-500 transition-colors" placeholder="Your Name" data-lang-key="formNamePlaceholder" required>
+                            </div>
+                            <div>
+                                <label for="wa-email" class="block text-gray-700 text-sm font-bold mb-2" data-lang-key="formEmailLabel">Email:</label>
+                                <input type="email" id="wa-email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:shadow-outline focus:border-blue-500 transition-colors" placeholder="your@example.com" data-lang-key="formEmailPlaceholder" required>
+                            </div>
+                            <div>
+                                <label for="wa-message" class="block text-gray-700 text-sm font-bold mb-2" data-lang-key="formMessageLabel">Message:</label>
+                                <textarea id="wa-message" name="message" rows="5" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:shadow-outline focus:border-blue-500 transition-colors" placeholder="Tell us about your tech needs..." data-lang-key="formMessagePlaceholder" required></textarea>
+                            </div>
+                            <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center space-x-2 transition-colors">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2.09 17.587l-1.354-1.354c-.195-.195-.451-.293-.707-.293s-.512.098-.707.293l-2.019 2.019c-.195.195-.451.293-.707.293s-.512-.098-.707-.293c-.195-.195-.293-.451-.293-.707s.098-.512.293-.707l1.096-1.096c.195-.195.293-.451.293-.707s-.098-.512-.293-.707l-1.096-1.096c-.195-.195-.293-.451-.293-.707s.098-.512.293-.707l.707-.707c.195-.195.451-.293.707-.293s.512.098.707.293l1.354 1.354c.195.195.451.293.707.293s.512-.098.707-.293l2.019-2.019c.195-.195.451-.293.707-.293s.512.098.707.293c.195.195.293.451.293.707s-.098.512-.293.707l-1.096 1.096c-.195.195-.293.451-.293.707s.098.512.293.707l1.096 1.096c.195.195.293.451.293.707s-.098.512-.293.707l-.707.707c-.195.195-.451.293-.707.293s-.512-.098-.707-.293z"/>
+                                    <path fill="url(#a)" d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2.09 17.587l-1.354-1.354c-.195-.195-.451-.293-.707-.293s-.512.098-.707.293l-2.019 2.019c-.195.195-.451.293-.707.293s-.512-.098-.707-.293c-.195-.195-.293-.451-.293-.707s.098-.512.293-.707l1.096-1.096c.195-.195.293-.451.293-.707s-.098-.512-.293-.707l-1.096-1.096c-.195-.195-.293-.451-.293-.707s.098-.512.293-.707l.707-.707c.195-.195.451-.293.707-.293s.512.098.707.293l1.354 1.354c.195.195.451.293.707.293s.512-.098.707-.293l2.019-2.019c.195-.195.451-.293.707-.293s.512.098.707.293c.195.195.293.451.293.707s-.098.512-.293.707l-1.096 1.096c-.195.195-.293.451-.293.707s.098.512.293.707l1.096 1.096c.195.195.293.451.293.707s-.098.512-.293.707l-.707.707c-.195.195-.451.293-.707.293s-.512-.098-.707-.293z"/>
+                                    <defs><linearGradient id="a" x1="50%" x2="50%" y1="0%" y2="100%"><stop offset="0%" stop-color="#1DA652"/><stop offset="100%" stop-color="#128C7E"/></linearGradient></defs>
+                                </svg>
+                                <span data-lang-key="formSubmitButton">Send via WhatsApp</span>
+                            </button>
+                        </form>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6" data-lang-key="anydeskTitle">
+                            Remote Support via AnyDesk
+                        </h3>
+                        <p class="text-gray-700 mb-6" data-lang-key="anydeskIntro">
+                            For direct technical assistance, you can connect to my AnyDesk session.
+                        </p>
+
+                        <div class="space-y-6">
+                            <div>
+                                <p class="text-gray-800 font-semibold mb-2" data-lang-key="anydeskStep1Title">
+                                    Step 1: Get My AnyDesk ID
+                                </p>
+                                <p class="text-gray-700 mb-4" data-lang-key="anydeskStep1Description">
+                                    My AnyDesk ID for support sessions is: <span class="font-mono bg-gray-200 p-1 rounded">YOUR_ANYDESK_ID_HERE</span> (replace this with your actual ID).
+                                    You will need this ID to connect.
+                                </p>
+                            </div>
+
+                            <div>
+                                <p class="text-gray-800 font-semibold mb-2" data-lang-key="anydeskStep2Title">
+                                    Step 2: Connect Directly
+                                </p>
+                                <p class="text-gray-700 mb-4" data-lang-key="anydeskStep2Description">
+                                    If you have AnyDesk installed, click the button below to connect directly:
+                                </p>
+                                <a href="anydesk:YOUR_ANYDESK_ID_HERE" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline inline-flex items-center space-x-2 transition-colors" data-lang-key="anydeskConnectButton">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                                    </svg>
+                                    Connect with AnyDesk
+                                </a>
+                            </div>
+
+                            <div>
+                                <p class="text-gray-800 font-semibold mb-2" data-lang-key="anydeskStep3Title">
+                                    Step 3: Download AnyDesk (if needed)
+                                </p>
+                                <p class="text-gray-700 mb-4" data-lang-key="anydeskStep3Description">
+                                    If you don't have AnyDesk installed, please download our custom client first:
+                                </p>
+                                <a href="YOUR_CUSTOM_ANYDESK_DOWNLOAD_URL_HERE" target="_blank" class="bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline inline-flex items-center space-x-2 transition-colors" data-lang-key="anydeskDownloadButton">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                                    </svg>
+                                    Download AnyDesk Client
+                                </a>
+                                <p class="text-sm text-gray-600 mt-2" data-lang-key="anydeskDownloadNote">
+                                    (This will download an executable file. Please run it to start the connection.)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer class="bg-gray-900 text-gray-300 py-8">
         <div class="container mx-auto px-4 text-center text-sm">
@@ -227,10 +327,9 @@
                 navHome: "Home",
                 navAbout: "About Me",
                 navServices: "Services",
-                // navContact: "Contact", // Removed contact nav item
+                navSupport: "Support", // NEW NAV LINK
                 homeHeadline: "World-Class Remote Tech Support.<br class='hidden md:block'>15+ Years of Experience Across 10 Countries.",
                 homeBody: "Stop struggling with technology. Get premier, one-on-one support from an expert who has successfully solved complex tech issues for clients worldwide, entirely remotely. From New York to São Paulo, we provide clear, lasting solutions for your home and business.",
-                // homeScheduleButton: "Schedule Your Consultation", // Removed button text
                 homeExpertise: "Our Expertise: Strategic IT Consulting | Custom Website & SEO | Hardware Upgrades | Apple & Microsoft Support",
                 homePayments: "Payments: We proudly accept major credit cards and local payment options for our global clients.",
                 aboutHeadline: "A Global Expert, Your Local Solution.",
@@ -277,30 +376,43 @@
                 servicesCategory8Item3: "Automatic Photo Backup Setup",
                 servicesCategory8Item4: "New Device Setup & Configuration",
                 servicesCategory8Item5: "Personalized Technology Training",
-                // Removed contact form language keys
-                // contactHeadline: "Ready to Solve Your Tech Challenges?",
-                // contactBody: "Get in touch today for a personalized consultation. We're here to provide clear, lasting solutions.",
-                // contactNameLabel: "Name",
-                // contactNamePlaceholder: "Your Name",
-                // contactEmailLabel: "Email",
-                // contactEmailPlaceholder: "your@example.com",
-                // contactMessageLabel: "Message",
-                // contactMessagePlaceholder: "Tell us about your tech needs...",
-                // contactSubmitButton: "Send Message",
+                scheduleNowHeadline: "Ready to Book? Schedule Your Session Now!",
+                scheduleInstructions: "Choose a convenient time directly from my calendar below for a personalized consultation.",
+                
+                // NEW: Support Section Language Keys
+                supportHeadline: "Get In Touch & Get Support",
+                whatsappFormTitle: "Contact Us via WhatsApp",
+                whatsappFormIntro: "Fill out the form below and we'll send your message directly to our WhatsApp, allowing us to connect quickly!",
+                formNameLabel: "Name:",
+                formNamePlaceholder: "Your Name",
+                formEmailLabel: "Email:",
+                formEmailPlaceholder: "your@example.com",
+                formMessageLabel: "Message:",
+                formMessagePlaceholder: "Tell us about your tech needs...",
+                formSubmitButton: "Send via WhatsApp",
+                anydeskTitle: "Remote Support via AnyDesk",
+                anydeskIntro: "For direct technical assistance, you can connect to my AnyDesk session.",
+                anydeskStep1Title: "Step 1: Get My AnyDesk ID",
+                anydeskStep1Description: "My AnyDesk ID for support sessions is: <span class=\"font-mono bg-gray-200 p-1 rounded\">YOUR_ANYDESK_ID_HERE</span> (replace this with your actual ID). You will need this ID to connect.",
+                anydeskStep2Title: "Step 2: Connect Directly",
+                anydeskStep2Description: "If you have AnyDesk installed, click the button below to connect directly:",
+                anydeskConnectButton: "Connect with AnyDesk",
+                anydeskStep3Title: "Step 3: Download AnyDesk (if needed)",
+                anydeskStep3Description: "If you don't have AnyDesk installed, please download our custom client first:",
+                anydeskDownloadButton: "Download AnyDesk Client",
+                anydeskDownloadNote: "(This will download an executable file. Please run it to start the connection.)",
+
                 footerCopyright: "&copy; 2024 Global Remote Tech Solutions. All rights reserved.",
-                footerTagline: "Designed with expertise and care.",
-                scheduleNowHeadline: "Ready to Book? Schedule Your Session Now!", // New language key for Calendly section
-                scheduleInstructions: "Choose a convenient time directly from my calendar below for a personalized consultation." // New language key for Calendly instructions
+                footerTagline: "Designed with expertise and care."
             },
             pt: {
                 pageTitle: "Soluções Tecnológicas Remotas Globais",
                 navHome: "Início",
                 navAbout: "Sobre Mim",
                 navServices: "Serviços",
-                // navContact: "Contato", // Removed contact nav item
+                navSupport: "Suporte", // NEW NAV LINK
                 homeHeadline: "Suporte Técnico Remoto de Classe Mundial.<br class='hidden md:block'>Mais de 15 Anos de Experiência em 10 Países.",
                 homeBody: "Pare de lutar com a tecnologia. Obtenha suporte individual e especializado de um expert que já resolveu problemas complexos para clientes ao redor do mundo, de forma 100% remota. De Nova York a São Paulo, oferecemos soluções claras e duradouras para sua casa e seu negócio.",
-                // homeScheduleButton: "Agende Sua Consultoria", // Removed button text
                 homeExpertise: "Nossa Expertise: Consultoria Estratégica de TI | Criação de Sites & SEO | Upgrades de Hardware | Suporte Apple & Microsoft",
                 homePayments: "Pagamentos: Aceitamos os principais cartões de crédito e opções de pagamento locais para nossos clientes globais.",
                 aboutHeadline: "Um Especialista Global, Sua Solução Local.",
@@ -337,40 +449,53 @@
                 servicesCategory5Item3: "IT Reporting & Automation",
                 servicesCategory6Title: "Cloud & Network Solutions",
                 servicesCategory6Item1: "Cloud Computing Services",
-                servicesCategory6Item2: "Network Management",
-                servicesCategory6Item3: "VoIP & Unified Communications",
-                servicesCategory7Title: "Software Development",
-                servicesCategory7Item1: "Custom Software & Application Development",
+                servicesCategory6Item2: "Gerenciamento de Rede",
+                servicesCategory6Item3: "VoIP & Comunicações Unificadas",
+                servicesCategory7Title: "Desenvolvimento de Software",
+                servicesCategory7Item1: "Desenvolvimento de Software e Aplicativos Personalizados",
                 servicesCategory8Title: "Gerenciamento de Dados e Treinamento",
                 servicesCategory8Item1: "Backup e Recuperação de Dados",
                 servicesCategory8Item2: "Gerenciamento de Dispositivos Móveis e Redes",
                 servicesCategory8Item3: "Configuração de Backup Automático de Fotos",
                 servicesCategory8Item4: "Configuração de Novos Dispositivos",
                 servicesCategory8Item5: "Treinamento Tecnológico Personalizado",
-                // Removed contact form language keys
-                // contactHeadline: "Pronto para Resolver Seus Desafios Tecnológicos?",
-                // contactBody: "Entre em contato hoje para uma consulta personalizada. Estamos aqui para fornecer soluções claras e duradouras.",
-                // contactNameLabel: "Nome",
-                // contactNamePlaceholder: "Seu Nome",
-                // contactEmailLabel: "Email",
-                // contactEmailPlaceholder: "seu@exemplo.com",
-                // contactMessageLabel: "Mensagem",
-                // contactMessagePlaceholder: "Conte-nos sobre suas necessidades tecnológicas...",
-                // contactSubmitButton: "Enviar Mensagem",
+                scheduleNowHeadline: "Pronto para Agendar? Marque Sua Sessão Agora!",
+                scheduleInstructions: "Escolha um horário conveniente diretamente do meu calendário abaixo para uma consulta personalizada.",
+
+                // NEW: Support Section Language Keys
+                supportHeadline: "Entre em Contato e Obtenha Suporte",
+                whatsappFormTitle: "Entre em Contato via WhatsApp",
+                whatsappFormIntro: "Preencha o formulário abaixo e enviaremos sua mensagem diretamente para nosso WhatsApp, permitindo uma conexão rápida!",
+                formNameLabel: "Nome:",
+                formNamePlaceholder: "Seu Nome",
+                formEmailLabel: "Email:",
+                formEmailPlaceholder: "seu@exemplo.com",
+                formMessageLabel: "Mensagem:",
+                formMessagePlaceholder: "Conte-nos sobre suas necessidades tecnológicas...",
+                formSubmitButton: "Enviar via WhatsApp",
+                anydeskTitle: "Suporte Remoto via AnyDesk",
+                anydeskIntro: "Para assistência técnica direta, você pode se conectar à minha sessão AnyDesk.",
+                anydeskStep1Title: "Passo 1: Obtenha Meu ID AnyDesk",
+                anydeskStep1Description: "Meu ID AnyDesk para sessões de suporte é: <span class=\"font-mono bg-gray-200 p-1 rounded\">YOUR_ANYDESK_ID_HERE</span> (substitua pelo seu ID real). Você precisará deste ID para conectar.",
+                anydeskStep2Title: "Passo 2: Conectar Diretamente",
+                anydeskStep2Description: "Se você tem o AnyDesk instalado, clique no botão abaixo para conectar diretamente:",
+                anydeskConnectButton: "Conectar com AnyDesk",
+                anydeskStep3Title: "Passo 3: Baixe o AnyDesk (se necessário)",
+                anydeskStep3Description: "Se você não tem o AnyDesk instalado, por favor, baixe nosso cliente personalizado primeiro:",
+                anydeskDownloadButton: "Baixar Cliente AnyDesk",
+                anydeskDownloadNote: "(Isso fará o download de um arquivo executável. Por favor, execute-o para iniciar a conexão.)",
+
                 footerCopyright: "&copy; 2024 Soluções Tecnológicas Remotas Globais. Todos os direitos reservados.",
-                footerTagline: "Desenvolvido com expertise e cuidado.",
-                scheduleNowHeadline: "Pronto para Agendar? Marque Sua Sessão Agora!", // New language key for Calendly section
-                scheduleInstructions: "Escolha um horário conveniente diretamente do meu calendário abaixo para uma consulta personalizada." // New language key for Calendly instructions
+                footerTagline: "Desenvolvido com expertise e cuidado."
             },
             es: {
                 pageTitle: "Soluciones Tecnológicas Remotas Globales",
                 navHome: "Inicio",
                 navAbout: "Sobre Mí",
                 navServices: "Servicios",
-                // navContact: "Contacto", // Removed contact nav item
+                navSupport: "Soporte", // NEW NAV LINK
                 homeHeadline: "Soporte Técnico Remoto de Clase Mundial.<br class='hidden md:block'>Más de 15 Años de Experiencia en 10 Países.",
                 homeBody: "Deja de luchar con la tecnología. Obtén soporte individual de primera de un experto que ha resuelto con éxito problemas técnicos complejos para clientes en todo el mundo, de forma totalmente remota. Desde Nueva York hasta São Paulo, ofrecemos soluciones claras y duraderas para tu hogar y negocio.",
-                // homeScheduleButton: "Agenda Tu Consulta", // Removed button text
                 homeExpertise: "Nuestra Experiencia: Consultoría Estratégica de TI | Diseño Web Personalizado y SEO | Actualizaciones de Hardware | Soporte Apple y Microsoft",
                 homePayments: "Pagos: Aceptamos las principales tarjetas de crédito y opciones de pago locales para nuestros clientes globales.",
                 aboutHeadline: "Un Experto Global, Tu Solución Local.",
@@ -417,20 +542,34 @@
                 servicesCategory8Item3: "Configuración de Copia de Seguridad Automática de Fotos",
                 servicesCategory8Item4: "Configuración de Nuevos Dispositivos",
                 servicesCategory8Item5: "Capacitación Tecnológica Personalizada",
-                // Removed contact form language keys
-                // contactHeadline: "¿Listo para Resolver Tus Desafíos Tecnológicos?",
-                // contactBody: "Ponte en contacto hoy para una consulta personalizada. Estamos aquí para proporcionarte soluciones claras y duraderas.",
-                // contactNameLabel: "Nombre",
-                // contactNamePlaceholder: "Tu Nombre",
-                // contactEmailLabel: "Correo Electrónico",
-                // contactEmailPlaceholder: "tu@ejemplo.com",
-                // contactMessageLabel: "Mensaje",
-                // contactMessagePlaceholder: "Cuéntanos tus necesidades tecnológicas...",
-                // contactSubmitButton: "Enviar Mensaje",
+                scheduleNowHeadline: "Listo para Reservar? ¡Agenda Tu Sesión Ahora!",
+                scheduleInstructions: "Elija un horario conveniente directamente desde mi calendario a continuación para una consulta personalizada.",
+
+                // NEW: Support Section Language Keys
+                supportHeadline: "Ponte en Contacto y Obtén Soporte",
+                whatsappFormTitle: "Contáctanos vía WhatsApp",
+                whatsappFormIntro: "¡Completa el formulario a continuación y enviaremos tu mensaje directamente a nuestro WhatsApp, permitiéndonos conectar rápidamente!",
+                formNameLabel: "Nombre:",
+                formNamePlaceholder: "Tu Nombre",
+                formEmailLabel: "Correo Electrónico:",
+                formEmailPlaceholder: "tu@ejemplo.com",
+                formMessageLabel: "Mensaje:",
+                formMessagePlaceholder: "Cuéntanos tus necesidades tecnológicas...",
+                formSubmitButton: "Enviar vía WhatsApp",
+                anydeskTitle: "Soporte Remoto vía AnyDesk",
+                anydeskIntro: "Para asistencia técnica directa, puedes conectarte a mi sesión de AnyDesk.",
+                anydeskStep1Title: "Paso 1: Obtén Mi ID de AnyDesk",
+                anydeskStep1Description: "Mi ID de AnyDesk para sesiones de soporte es: <span class=\"font-mono bg-gray-200 p-1 rounded\">YOUR_ANYDESK_ID_HERE</span> (reemplaza esto con tu ID real). Necesitarás este ID para conectarte.",
+                anydeskStep2Title: "Paso 2: Conéctate Directamente",
+                anydeskStep2Description: "Si tienes AnyDesk instalado, haz clic en el botón de abajo para conectarte directamente:",
+                anydeskConnectButton: "Conectar con AnyDesk",
+                anydeskStep3Title: "Paso 3: Descarga AnyDesk (si es necesario)",
+                anydeskStep3Description: "Si no tienes AnyDesk instalado, por favor, descarga nuestro cliente personalizado primero:",
+                anydeskDownloadButton: "Descargar Cliente AnyDesk",
+                anydeskDownloadNote: "(Esto descargará un archivo ejecutable. Por favor, ejecútalo para iniciar la conexión.)",
+
                 footerCopyright: "&copy; 2024 Soluciones Tecnológicas Remotas Globales. Todos los derechos reservados.",
-                footerTagline: "Diseñado con experiencia y cuidado.",
-                scheduleNowHeadline: "¿Listo para Reservar? ¡Agenda Tu Sesión Ahora!", // New language key for Calendly section
-                scheduleInstructions: "Elija un horario conveniente directamente desde mi calendario a continuación para una consulta personalizada." // New language key for Calendly instructions
+                footerTagline: "Diseñado con experiencia y cuidado."
             }
         };
 
@@ -519,7 +658,37 @@
                 });
             });
 
-            // Removed all modal related JavaScript logic
+            // WhatsApp Form Submission Handler
+            const whatsappForm = document.getElementById('whatsappForm');
+            if (whatsappForm) {
+                whatsappForm.addEventListener('submit', function(event) {
+                    event.preventDefault(); // Prevent default form submission
+
+                    const name = document.getElementById('wa-name').value;
+                    const email = document.getElementById('wa-email').value;
+                    const message = document.getElementById('wa-message').value;
+
+                    // **IMPORTANT:** Replace 'YOUR_WHATSAPP_NUMBER' with your actual WhatsApp number, including country code (e.g., 5541999999999 for Brazil)
+                    const whatsappNumber = 'YOUR_WHATSAPP_NUMBER'; 
+
+                    // Construct the pre-filled message
+                    const encodedMessage = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage: ${message}\n\n[Sent from Website Contact Form]`);
+
+                    // Check if on a mobile device for direct app link, otherwise use web.whatsapp.com
+                    let whatsappUrl;
+                    if (/Mobi|Android/i.test(navigator.userAgent)) {
+                        whatsappUrl = `whatsapp://send?phone=${whatsappNumber}&text=${encodedMessage}`;
+                    } else {
+                        whatsappUrl = `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
+                    }
+                    
+                    window.open(whatsappUrl, '_blank');
+
+                    // Optionally, clear the form after submission
+                    whatsappForm.reset();
+                    alert("Your message is ready in WhatsApp! Please send it from there."); // Inform the user
+                });
+            }
         });
     </script>
 </body>
