@@ -593,10 +593,9 @@
             });
 
             // **MODAL LOGIC ADDED/FIXED HERE**
-            const scheduleButton = document.getElementById('schedule-button');
-            const schedulingModal = document.getElementById('scheduling-modal');
-            const closeModalButton = document.getElementById('close-modal-button');
-
+            #scheduling-modal { display: none; /* or visibility: hidden; */ }
+#scheduling-modal.show { display: block; /* or visibility: visible; */ }
+        
             scheduleButton.addEventListener('click', () => {
                 schedulingModal.classList.add('show');
             });
@@ -604,7 +603,14 @@
             closeModalButton.addEventListener('click', () => {
                 schedulingModal.classList.remove('show');
             });
+<button id="schedule-button">Schedule</button>
 
+<div id="scheduling-modal" class="modal">
+  <div class="modal-content">
+    <button id="close-modal-button">Close</button>
+    <!-- Calendly widget or content goes here -->
+  </div>
+</div>
             // Close modal when clicking outside of it
             schedulingModal.addEventListener('click', (e) => {
                 if (e.target === schedulingModal) {
