@@ -32,51 +32,6 @@
             font-weight: 600;
             color: #2563eb; /* Blue-600 */
         }
-        /* Modal overlay */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-        .modal-overlay.show {
-            opacity: 1;
-            visibility: visible;
-        }
-        .modal-content {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 0.75rem; /* rounded-xl */
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* shadow-2xl */
-            max-width: 90%;
-            max-height: 90%;
-            overflow-y: auto;
-            position: relative;
-            transform: translateY(-20px);
-            transition: transform 0.3s ease;
-        }
-        .modal-overlay.show .modal-content {
-            transform: translateY(0);
-        }
-        .close-button {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #6b7280; /* gray-500 */
-        }
     </style>
 </head>
 <body>
@@ -90,7 +45,6 @@
                 <a href="#home" class="nav-link text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-md hover:bg-gray-100" data-lang-key="navHome">Home</a>
                 <a href="#about" class="nav-link text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-md hover:bg-gray-100" data-lang-key="navAbout">About Me</a>
                 <a href="#services" class="nav-link text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-md hover:bg-gray-100" data-lang-key="navServices">Services</a>
-                <a href="#contact" class="nav-link text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-md hover:bg-gray-100" data-lang-key="navContact">Contact</a>
                 <div class="flex space-x-2 ml-4">
                     <button class="lang-button px-3 py-1 rounded-md text-sm font-medium bg-gray-200 hover:bg-gray-300 transition-colors" data-lang="en">EN</button>
                     <button class="lang-button px-3 py-1 rounded-md text-sm font-medium bg-gray-200 hover:bg-gray-300 transition-colors" data-lang="pt">PT</button>
@@ -114,8 +68,7 @@
             <a href="#home" class="nav-link block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md" data-lang-key="navHome">Home</a>
             <a href="#about" class="nav-link block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md" data-lang-key="navAbout">About Me</a>
             <a href="#services" class="nav-link block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md" data-lang-key="navServices">Services</a>
-            <a href="#contact" class="nav-link block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md" data-lang-key="navContact">Contact</a>
-        </div>
+            </div>
     </header>
 
     <main class="pt-16">
@@ -130,9 +83,6 @@
                 <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto opacity-90 animate-fade-in-up delay-100" data-lang-key="homeBody">
                     Stop struggling with technology. Get premier, one-on-one support from an expert who has successfully solved complex tech issues for clients worldwide, entirely remotely. From New York to São Paulo, we provide clear, lasting solutions for your home and business.
                 </p>
-                <button id="schedule-button" class="inline-block bg-white text-blue-700 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-blue-100 hover:scale-105 transition-all duration-300 animate-fade-in-up delay-200" data-lang-key="homeScheduleButton">
-                    Schedule Your Consultation
-                </button>
                 <div class="mt-12 text-sm md:text-base opacity-80 animate-fade-in-up delay-300">
                     <p class="mb-2" data-lang-key="homeExpertise">Our Expertise: Strategic IT Consulting | Custom Website & SEO | Hardware Upgrades | Apple & Microsoft Support</p>
                     <p data-lang-key="homePayments">Payments: We proudly accept major credit cards and local payment options for our global clients.</p>
@@ -243,37 +193,22 @@
                             </ul>
                         </div>
                     </div>
+
+                    <div class="mt-16 pt-8 border-t border-gray-200">
+                        <h3 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-8" data-lang-key="scheduleNowHeadline">
+                            Ready to Book? Schedule Your Session Now!
+                        </h3>
+                        <p class="text-lg leading-relaxed text-gray-700 mb-8 text-center md:text-left" data-lang-key="scheduleInstructions">
+                            Choose a convenient time directly from my calendar below for a personalized consultation.
+                        </p>
+                        <div class="calendly-inline-widget" data-url="https://calendly.com/jameslesesne" style="min-width:320px;height:700px;"></div>
+                        </div>
+
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="py-16 md:py-24 bg-blue-700 text-white">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-8" data-lang-key="contactHeadline">Ready to Solve Your Tech Challenges?</h2>
-                <p class="text-lg md:text-xl mb-10 max-w-2xl mx-auto opacity-90" data-lang-key="contactBody">
-                    Get in touch today for a personalized consultation. We're here to provide clear, lasting solutions.
-                </p>
-                <form class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-lg text-gray-800"
-                      action="https://formspree.io/f/yourformidhere" method="POST"> <div class="mb-6">
-                        <label for="name" class="block text-left text-sm font-medium text-gray-700 mb-2" data-lang-key="contactNameLabel">Name</label>
-                        <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" data-lang-key="contactNamePlaceholder" placeholder="Your Name" required>
-                    </div>
-                    <div class="mb-6">
-                        <label for="email" class="block text-left text-sm font-medium text-gray-700 mb-2" data-lang-key="contactEmailLabel">Email</label>
-                        <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" data-lang-key="contactEmailPlaceholder" placeholder="your@example.com" required>
-                    </div>
-                    <div class="mb-6">
-                        <label for="message" class="block text-left text-sm font-medium text-gray-700 mb-2" data-lang-key="contactMessageLabel">Message</label>
-                        <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" data-lang-key="contactMessagePlaceholder" placeholder="Tell us about your tech needs..." required></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-blue-700 text-white font-bold py-3 px-6 rounded-full shadow-md hover:bg-blue-800 hover:scale-105 transition-all duration-300" data-lang-key="contactSubmitButton">
-                        Send Message
-                    </button>
-                </form>
-            </div>
-        </section>
-
-    </main>
+        </main>
 
     <footer class="bg-gray-900 text-gray-300 py-8">
         <div class="container mx-auto px-4 text-center text-sm">
@@ -281,17 +216,6 @@
             <p class="mt-2" data-lang-key="footerTagline">Designed with expertise and care.</p>
         </div>
     </footer>
-
-    <div id="scheduling-modal" class="modal-overlay">
-        <div class="modal-content">
-            <button class="close-button" id="close-modal-button">&times;</button>
-            <h3 class="text-2xl font-bold text-gray-900 mb-4" data-lang-key="modalHeadline">Schedule Your Consultation</h3>
-            <p class="text-gray-700 mb-6" data-lang-key="modalInstructions">
-                To book a session, please use our online scheduling tool below.
-            </p>
-            <div class="calendly-inline-widget" data-url="https://calendly.com/jameslesesne" style="min-width:320px;height:700px;"></div>
-            </div>
-    </div>
 
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
@@ -303,10 +227,10 @@
                 navHome: "Home",
                 navAbout: "About Me",
                 navServices: "Services",
-                navContact: "Contact",
+                // navContact: "Contact", // Removed contact nav item
                 homeHeadline: "World-Class Remote Tech Support.<br class='hidden md:block'>15+ Years of Experience Across 10 Countries.",
                 homeBody: "Stop struggling with technology. Get premier, one-on-one support from an expert who has successfully solved complex tech issues for clients worldwide, entirely remotely. From New York to São Paulo, we provide clear, lasting solutions for your home and business.",
-                homeScheduleButton: "Schedule Your Consultation",
+                // homeScheduleButton: "Schedule Your Consultation", // Removed button text
                 homeExpertise: "Our Expertise: Strategic IT Consulting | Custom Website & SEO | Hardware Upgrades | Apple & Microsoft Support",
                 homePayments: "Payments: We proudly accept major credit cards and local payment options for our global clients.",
                 aboutHeadline: "A Global Expert, Your Local Solution.",
@@ -353,29 +277,30 @@
                 servicesCategory8Item3: "Automatic Photo Backup Setup",
                 servicesCategory8Item4: "New Device Setup & Configuration",
                 servicesCategory8Item5: "Personalized Technology Training",
-                contactHeadline: "Ready to Solve Your Tech Challenges?",
-                contactBody: "Get in touch today for a personalized consultation. We're here to provide clear, lasting solutions.",
-                contactNameLabel: "Name",
-                contactNamePlaceholder: "Your Name",
-                contactEmailLabel: "Email",
-                contactEmailPlaceholder: "your@example.com",
-                contactMessageLabel: "Message",
-                contactMessagePlaceholder: "Tell us about your tech needs...",
-                contactSubmitButton: "Send Message",
+                // Removed contact form language keys
+                // contactHeadline: "Ready to Solve Your Tech Challenges?",
+                // contactBody: "Get in touch today for a personalized consultation. We're here to provide clear, lasting solutions.",
+                // contactNameLabel: "Name",
+                // contactNamePlaceholder: "Your Name",
+                // contactEmailLabel: "Email",
+                // contactEmailPlaceholder: "your@example.com",
+                // contactMessageLabel: "Message",
+                // contactMessagePlaceholder: "Tell us about your tech needs...",
+                // contactSubmitButton: "Send Message",
                 footerCopyright: "&copy; 2024 Global Remote Tech Solutions. All rights reserved.",
                 footerTagline: "Designed with expertise and care.",
-                modalHeadline: "Schedule Your Consultation",
-                modalInstructions: "To book a session, please use our online scheduling tool below."
+                scheduleNowHeadline: "Ready to Book? Schedule Your Session Now!", // New language key for Calendly section
+                scheduleInstructions: "Choose a convenient time directly from my calendar below for a personalized consultation." // New language key for Calendly instructions
             },
             pt: {
                 pageTitle: "Soluções Tecnológicas Remotas Globais",
                 navHome: "Início",
                 navAbout: "Sobre Mim",
                 navServices: "Serviços",
-                navContact: "Contato",
+                // navContact: "Contato", // Removed contact nav item
                 homeHeadline: "Suporte Técnico Remoto de Classe Mundial.<br class='hidden md:block'>Mais de 15 Anos de Experiência em 10 Países.",
                 homeBody: "Pare de lutar com a tecnologia. Obtenha suporte individual e especializado de um expert que já resolveu problemas complexos para clientes ao redor do mundo, de forma 100% remota. De Nova York a São Paulo, oferecemos soluções claras e duradouras para sua casa e seu negócio.",
-                homeScheduleButton: "Agende Sua Consultoria",
+                // homeScheduleButton: "Agende Sua Consultoria", // Removed button text
                 homeExpertise: "Nossa Expertise: Consultoria Estratégica de TI | Criação de Sites & SEO | Upgrades de Hardware | Suporte Apple & Microsoft",
                 homePayments: "Pagamentos: Aceitamos os principais cartões de crédito e opções de pagamento locais para nossos clientes globais.",
                 aboutHeadline: "Um Especialista Global, Sua Solução Local.",
@@ -416,35 +341,36 @@
                 servicesCategory6Item3: "VoIP & Unified Communications",
                 servicesCategory7Title: "Software Development",
                 servicesCategory7Item1: "Custom Software & Application Development",
-                servicesCategory8Title: "Data Management & Training",
-                servicesCategory8Item1: "Data Backup & Recovery",
-                servicesCategory8Item2: "Mobile Device & Network Management",
-                servicesCategory8Item3: "Automatic Photo Backup Setup",
-                servicesCategory8Item4: "New Device Setup & Configuration",
-                servicesCategory8Item5: "Personalized Technology Training",
-                contactHeadline: "Pronto para Resolver Seus Desafios Tecnológicos?",
-                contactBody: "Entre em contato hoje para uma consulta personalizada. Estamos aqui para fornecer soluções claras e duradouras.",
-                contactNameLabel: "Nome",
-                contactNamePlaceholder: "Seu Nome",
-                contactEmailLabel: "Email",
-                contactEmailPlaceholder: "seu@exemplo.com",
-                contactMessageLabel: "Mensagem",
-                contactMessagePlaceholder: "Conte-nos sobre suas necessidades tecnológicas...",
-                contactSubmitButton: "Enviar Mensagem",
+                servicesCategory8Title: "Gerenciamento de Dados e Treinamento",
+                servicesCategory8Item1: "Backup e Recuperação de Dados",
+                servicesCategory8Item2: "Gerenciamento de Dispositivos Móveis e Redes",
+                servicesCategory8Item3: "Configuração de Backup Automático de Fotos",
+                servicesCategory8Item4: "Configuração de Novos Dispositivos",
+                servicesCategory8Item5: "Treinamento Tecnológico Personalizado",
+                // Removed contact form language keys
+                // contactHeadline: "Pronto para Resolver Seus Desafios Tecnológicos?",
+                // contactBody: "Entre em contato hoje para uma consulta personalizada. Estamos aqui para fornecer soluções claras e duradouras.",
+                // contactNameLabel: "Nome",
+                // contactNamePlaceholder: "Seu Nome",
+                // contactEmailLabel: "Email",
+                // contactEmailPlaceholder: "seu@exemplo.com",
+                // contactMessageLabel: "Mensagem",
+                // contactMessagePlaceholder: "Conte-nos sobre suas necessidades tecnológicas...",
+                // contactSubmitButton: "Enviar Mensagem",
                 footerCopyright: "&copy; 2024 Soluções Tecnológicas Remotas Globais. Todos os direitos reservados.",
                 footerTagline: "Desenvolvido com expertise e cuidado.",
-                modalHeadline: "Agende Sua Consultoria",
-                modalInstructions: "Para agendar uma sessão, por favor use nossa ferramenta de agendamento online abaixo."
+                scheduleNowHeadline: "Pronto para Agendar? Marque Sua Sessão Agora!", // New language key for Calendly section
+                scheduleInstructions: "Escolha um horário conveniente diretamente do meu calendário abaixo para uma consulta personalizada." // New language key for Calendly instructions
             },
             es: {
                 pageTitle: "Soluciones Tecnológicas Remotas Globales",
                 navHome: "Inicio",
                 navAbout: "Sobre Mí",
                 navServices: "Servicios",
-                navContact: "Contacto",
+                // navContact: "Contacto", // Removed contact nav item
                 homeHeadline: "Soporte Técnico Remoto de Clase Mundial.<br class='hidden md:block'>Más de 15 Años de Experiencia en 10 Países.",
                 homeBody: "Deja de luchar con la tecnología. Obtén soporte individual de primera de un experto que ha resuelto con éxito problemas técnicos complejos para clientes en todo el mundo, de forma totalmente remota. Desde Nueva York hasta São Paulo, ofrecemos soluciones claras y duraderas para tu hogar y negocio.",
-                homeScheduleButton: "Agenda Tu Consulta",
+                // homeScheduleButton: "Agenda Tu Consulta", // Removed button text
                 homeExpertise: "Nuestra Experiencia: Consultoría Estratégica de TI | Diseño Web Personalizado y SEO | Actualizaciones de Hardware | Soporte Apple y Microsoft",
                 homePayments: "Pagos: Aceptamos las principales tarjetas de crédito y opciones de pago locales para nuestros clientes globales.",
                 aboutHeadline: "Un Experto Global, Tu Solución Local.",
@@ -491,19 +417,20 @@
                 servicesCategory8Item3: "Configuración de Copia de Seguridad Automática de Fotos",
                 servicesCategory8Item4: "Configuración de Nuevos Dispositivos",
                 servicesCategory8Item5: "Capacitación Tecnológica Personalizada",
-                contactHeadline: "¿Listo para Resolver Tus Desafíos Tecnológicos?",
-                contactBody: "Ponte en contacto hoy para una consulta personalizada. Estamos aquí para proporcionarte soluciones claras y duraderas.",
-                contactNameLabel: "Nombre",
-                contactNamePlaceholder: "Tu Nombre",
-                contactEmailLabel: "Correo Electrónico",
-                contactEmailPlaceholder: "tu@ejemplo.com",
-                contactMessageLabel: "Mensaje",
-                contactMessagePlaceholder: "Cuéntanos tus necesidades tecnológicas...",
-                contactSubmitButton: "Enviar Mensaje",
+                // Removed contact form language keys
+                // contactHeadline: "¿Listo para Resolver Tus Desafíos Tecnológicos?",
+                // contactBody: "Ponte en contacto hoy para una consulta personalizada. Estamos aquí para proporcionarte soluciones claras y duraderas.",
+                // contactNameLabel: "Nombre",
+                // contactNamePlaceholder: "Tu Nombre",
+                // contactEmailLabel: "Correo Electrónico",
+                // contactEmailPlaceholder: "tu@ejemplo.com",
+                // contactMessageLabel: "Mensaje",
+                // contactMessagePlaceholder: "Cuéntanos tus necesidades tecnológicas...",
+                // contactSubmitButton: "Enviar Mensaje",
                 footerCopyright: "&copy; 2024 Soluciones Tecnológicas Remotas Globales. Todos los derechos reservados.",
                 footerTagline: "Diseñado con experiencia y cuidado.",
-                modalHeadline: "Agenda Tu Consulta",
-                modalInstructions: "Para reservar una sesión, por favor utiliza nuestra herramienta de programación en línea a continuación."
+                scheduleNowHeadline: "¿Listo para Reservar? ¡Agenda Tu Sesión Ahora!", // New language key for Calendly section
+                scheduleInstructions: "Elija un horario conveniente directamente desde mi calendario a continuación para una consulta personalizada." // New language key for Calendly instructions
             }
         };
 
@@ -592,28 +519,7 @@
                 });
             });
 
-            // **MODAL LOGIC ADDED/FIXED HERE**
-const scheduleButton = document.getElementById('schedule-button');
-const schedulingModal = document.getElementById('scheduling-modal');
-const closeModalButton = document.getElementById('close-modal-button');
-
-scheduleButton.addEventListener('click', () => {
-    schedulingModal.classList.add('show');
-});
-
-closeModalButton.addEventListener('click', () => {
-    schedulingModal.classList.remove('show');
-});
-
-// Close modal when clicking outside of it
-schedulingModal.addEventListener('click', (e) => {
-    if (e.target === schedulingModal) {
-        schedulingModal.classList.remove('show');
-    }
-});
-
-            // **FORM SUBMISSION LOGIC - No changes needed here, as Formspree handles it.**
-            // The form will now submit to Formspree directly via its action attribute.
+            // Removed all modal related JavaScript logic
         });
     </script>
 </body>
