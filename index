@@ -3,508 +3,1022 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-lang-key="pageTitle">LesesneTechSolutions</title>
+    <title data-lang-key="pageTitle">Lesesne Tech Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        /* Base font for the entire body */
         body {
             font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth; /* Smooth scrolling for navigation */
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
         }
         /* Custom scrollbar for a cleaner look */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 8px; /* Width of the scrollbar */
         }
         ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
+            background: #f1f1f1; /* Color of the track */
+            border-radius: 10px; /* Rounded corners for the track */
         }
         ::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 10px;
+            background: #888; /* Color of the scroll thumb */
+            border-radius: 10px; /* Rounded corners for the thumb */
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #555;
-            border-radius: 10px;
+            background: #555; /* Color of the scroll thumb on hover */
+            border-radius: 10px; /* Rounded corners for the thumb on hover */
         }
-        /* Active navigation link styling */
+        /* Styling for the active navigation link */
         .nav-link.active {
-            font-weight: 600;
-            color: #2563eb; /* Blue-600 */
+            font-weight: 600; /* Bolder font for active link */
+            color: #EF4444; /* Red-500 color for active link */
         }
-        /* Optional: Add some styling for form focus */
+        /* Optional: Add some styling for form focus states */
         input:focus, textarea:focus {
-            outline: none;
-            border-color: #2563eb; /* Blue-600 */
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3); /* Blue-600 with opacity */
+            outline: none; /* Remove default outline */
+            border-color: #3B82F6; /* Blue-500 border color on focus */
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3); /* Blue shadow on focus */
         }
+        /* Hero section background pattern - subtle and dynamic */
+        .hero-pattern {
+            /* Multiple radial gradients to create a complex pattern */
+            background-image: radial-gradient(circle at 100% 150%, #3B82F6 24%, #60A5FA 25%, #60A5FA 28%, #3B82F6 29%, #3B82F6 36%, #60A5FA 36%, #60A5FA 40%, transparent 40%, transparent),
+                            radial-gradient(circle at 0% 150%, #3B82F6 20%, #60A5FA 21%, #60A5FA 24%, #3B82F6 25%, #3B82F6 32%, #60A5FA 33%, #60A5FA 36%, transparent 36%, transparent),
+                            radial-gradient(circle at 50% 100%, #3B82F6 10%, #60A5FA 11%, #60A5FA 14%, #3B82F6 15%, #3B82F6 20%, #60A5FA 21%, #60A5FA 24%, transparent 25%, transparent),
+                            radial-gradient(circle at 100% 50%, #3B82F6 5%, #60A5FA 6%, #60A5FA 9%, #3B82F6 10%, #3B82F6 15%, #60A5FA 16%, #60A5FA 20%, transparent 20%, transparent),
+                            radial-gradient(circle at 0% 50%, #3B82F6 10%, #60A5FA 11%, #60A5FA 14%, #3B82F6 15%, #3B82F6 20%, #60A5FA 21%, #60A5FA 24%, transparent 25%, transparent);
+            background-size: 80px 80px; /* Size of each pattern repeat */
+            background-position: 0 0, 100% 0, 100% 100%, 0 100%; /* Positioning of each gradient */
+        }
+        /* Keyframe animations for subtle entrance effects */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
     </style>
 </head>
 <body>
 
+    <!-- Header Section: Fixed navigation bar with logo, links, and language toggle -->
     <header class="bg-white shadow-sm fixed w-full z-50">
-        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#home" class="text-2xl font-bold text-gray-900 rounded-md p-2 hover:bg-gray-100 transition-colors">
-                Global Tech Solutions
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo/Site Title - Responsive font size -->
+            <a href="#home" class="text-xl sm:text-2xl font-extrabold text-blue-700 rounded-md p-2 hover:bg-gray-100 transition-colors">
+                Lesesne Tech Solutions
             </a>
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#home" class="nav-link text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-md hover:bg-gray-100" data-lang-key="navHome">Home</a>
-                <a href="#about" class="nav-link text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-md hover:bg-gray-100" data-lang-key="navAbout">About Me</a>
-                <a href="#services" class="nav-link text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-md hover:bg-gray-100" data-lang-key="navServices">Services</a>
-                <a href="#contact" class="nav-link text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-md hover:bg-gray-100" data-lang-key="navContact">Contact</a> <div class="flex space-x-2 ml-4">
-                    <button class="lang-button px-3 py-1 rounded-md text-sm font-medium bg-gray-200 hover:bg-gray-300 transition-colors" data-lang="en">EN</button>
-                    <button class="lang-button px-3 py-1 rounded-md text-sm font-medium bg-gray-200 hover:bg-gray-300 transition-colors" data-lang="pt">PT</button>
-                    <button class="lang-button px-3 py-1 rounded-md text-sm font-medium bg-gray-200 hover:bg-gray-300 transition-colors" data-lang="es">ES</button>
+            <!-- Desktop Navigation Links and Language Buttons -->
+            <div class="hidden md:flex items-center space-x-4 lg:space-x-8">
+                <a href="#home" class="nav-link text-gray-600 hover:text-red-500 transition-colors p-2 rounded-md hover:bg-gray-100 text-sm lg:text-base" data-lang-key="navHome">Home</a>
+                <a href="#about" class="nav-link text-gray-600 hover:text-red-500 transition-colors p-2 rounded-md hover:bg-gray-100 text-sm lg:text-base" data-lang-key="navAbout">About Me</a>
+                <a href="#services" class="nav-link text-gray-600 hover:text-red-500 transition-colors p-2 rounded-md hover:bg-gray-100 text-sm lg:text-base" data-lang-key="navServices">Services</a>
+                <a href="#contact" class="nav-link text-gray-600 hover:text-red-500 transition-colors p-2 rounded-md hover:bg-gray-100 text-sm lg:text-base" data-lang-key="navContact">Contact</a>
+                <!-- Language Toggle Buttons for Desktop -->
+                <div class="flex space-x-2 ml-4">
+                    <button class="lang-button px-2 py-1 sm:px-3 sm:py-1 rounded-md text-xs sm:text-sm font-medium bg-gray-200 hover:bg-red-100 transition-colors text-gray-800" data-lang="en">EN</button>
+                    <button class="lang-button px-2 py-1 sm:px-3 sm:py-1 rounded-md text-xs sm:text-sm font-medium bg-gray-200 hover:bg-red-100 transition-colors text-gray-800" data-lang="pt">PT</button>
+                    <button class="lang-button px-2 py-1 sm:px-3 sm:py-1 rounded-md text-xs sm:text-sm font-medium bg-gray-200 hover:bg-red-100 transition-colors text-gray-800" data-lang="es">ES</button>
                 </div>
             </div>
+            <!-- Mobile Menu Button and Language Buttons (visible on small screens) -->
             <div class="flex items-center md:hidden">
+                <!-- Language Toggle Buttons for Mobile -->
                 <div class="flex space-x-2 mr-4">
-                    <button class="lang-button px-3 py-1 rounded-md text-sm font-medium bg-gray-200 hover:bg-gray-300 transition-colors" data-lang="en">EN</button>
-                    <button class="lang-button px-3 py-1 rounded-md text-sm font-medium bg-gray-200 hover:bg-gray-300 transition-colors" data-lang="pt">PT</button>
-                    <button class="lang-button px-3 py-1 rounded-md text-sm font-medium bg-gray-200 hover:bg-gray-300 transition-colors" data-lang="es">ES</button>
+                    <button class="lang-button px-2 py-1 rounded-md text-xs font-medium bg-gray-200 hover:bg-red-100 transition-colors text-gray-800" data-lang="en">EN</button>
+                    <button class="lang-button px-2 py-1 rounded-md text-xs font-medium bg-gray-200 hover:bg-red-100 transition-colors text-gray-800" data-lang="pt">PT</button>
+                    <button class="lang-button px-2 py-1 rounded-md text-xs font-medium bg-gray-200 hover:bg-red-100 transition-colors text-gray-800" data-lang="es">ES</button>
                 </div>
-                <button id="mobile-menu-button" class="text-gray-600 hover:text-blue-600 p-2 rounded-md hover:bg-gray-100 transition-colors">
+                <!-- Mobile Menu Toggle Button (Hamburger icon) -->
+                <button id="mobile-menu-button" class="text-gray-600 hover:text-red-500 p-2 rounded-md hover:bg-gray-100 transition-colors" aria-label="Toggle mobile menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
         </nav>
+        <!-- Mobile Menu Dropdown (hidden by default) -->
         <div id="mobile-menu" class="hidden md:hidden bg-white py-2 shadow-md">
-            <a href="#home" class="nav-link block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md" data-lang-key="navHome">Home</a>
-            <a href="#about" class="nav-link block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md" data-lang-key="navAbout">About Me</a>
-            <a href="#services" class="nav-link block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md" data-lang-key="navServices">Services</a>
-            <a href="#contact" class="nav-link block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md" data-lang-key="navContact">Contact</a> </div>
+            <a href="#home" class="nav-link block px-4 py-2 text-gray-800 hover:bg-red-100 rounded-md text-base" data-lang-key="navHome">Home</a>
+            <a href="#about" class="nav-link block px-4 py-2 text-gray-800 hover:bg-red-100 rounded-md text-base" data-lang-key="navAbout">About Me</a>
+            <a href="#services" class="nav-link block px-4 py-2 text-gray-800 hover:bg-red-100 rounded-md text-base" data-lang-key="navServices">Services</a>
+            <a href="#contact" class="nav-link block px-4 py-2 text-gray-800 hover:bg-red-100 rounded-md text-base" data-lang-key="navContact">Contact</a>
+        </div>
     </header>
 
+    <!-- Main Content Area -->
     <main class="pt-16">
-        <section id="home" class="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20 md:py-32 overflow-hidden">
-            <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('https://placehold.co/1920x1080/0000FF/FFFFFF?text=Global+Tech+Background');"></div>
-            <div class="container mx-auto px-4 relative z-10 text-center">
-                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 animate-fade-in-up" data-lang-key="homeHeadline">
-                    World-Class Remote Tech Support.
-                    <br class="hidden md:block">
-                    15+ Years of Experience Across 10 Countries.
+        <!-- Home Section: Hero banner with headline and introductory text -->
+        <section id="home" class="relative bg-gradient-to-r from-blue-700 to-blue-900 text-white py-16 md:py-24 lg:py-32 overflow-hidden hero-pattern">
+            <div class="absolute inset-0 opacity-10"></div>
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-4 sm:mb-6 animate-fade-in-up" data-lang-key="homeHeadline">
+                    Expert Remote Tech Support.<br class="hidden md:block">15+ Years of Proven Experience.
                 </h1>
-                <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto opacity-90 animate-fade-in-up delay-100" data-lang-key="homeBody">
-                    Stop struggling with technology. Get premier, one-on-one support from an expert who has successfully solved complex tech issues for clients worldwide, entirely remotely. From Curitiba to New York, we provide clear, lasting solutions for your home and business.
+                <p class="text-base sm:text-lg md:text-xl mb-8 sm:mb-10 max-w-3xl mx-auto opacity-90 animate-fade-in-up delay-100" data-lang-key="homeBody">
+                    Tired of tech headaches? Experience premier, personalized tech support from an American IT expert. With over 15 years of proven success, I transform your digital challenges into seamless solutions, remotely serving clients from Brazil to USA and beyond.
                 </p>
-                <div class="mt-12 text-sm md:text-base opacity-80 animate-fade-in-up delay-300">
-                    <p class="mb-2" data-lang-key="homeExpertise">Our Expertise: Strategic IT Consulting | Custom Website & SEO | Hardware Upgrades | Apple & Microsoft Support</p>
-                    <p data-lang-key="homePayments">Payments: We proudly accept major credit cards and local payment options for our global clients.</p>
+                <div class="mt-8 sm:mt-10 text-xs sm:text-sm md:text-base opacity-80 animate-fade-in-up delay-300">
+                    <p class="mb-2" data-lang-key="homeExpertise">My Expertise: Strategic IT Consulting | Custom Website & SEO | Hardware Upgrades | Apple & Microsoft Support</p>
+                    <p data-lang-key="homePayments">Payments: I proudly accept major credit cards and local payment options for my global clients.</p>
                 </div>
             </div>
         </section>
 
+        <!-- About Me Section: Introduction to the expert -->
         <section id="about" class="py-16 md:py-24 bg-white">
-            <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                <!-- Image of James Lesesne -->
                 <div class="md:w-1/2">
-                    <img src="https://placehold.co/600x400/E0E7FF/3B82F6?text=Global+Expert" alt="A global expert working remotely" class="rounded-https://calendly.com/event_types/user/mexl shadow-lg w-full h-auto object-cover">
+                    <img src="https://placehold.co/600x400/DDE7FF/3B82F6?text=James+Lesesne" alt="James Lesesne, an American tech expert working remotely" class="rounded-xl shadow-lg w-full h-auto object-cover border-4 border-blue-500">
                 </div>
+                <!-- About Me Text Content -->
                 <div class="md:w-1/2 text-center md:text-left">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6" data-lang-key="aboutHeadline">
-                        A Global Expert, Your Local Solution.
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6" data-lang-key="aboutHeadline">
+                        Your American Tech Expert, Globally Connected.
                     </h2>
-                    <p class="text-lg leading-relaxed text-gray-700 mb-4" data-lang-key="aboutBody1">
-                        For over 15 years, I have specialized in one thing: providing expert-level IT support entirely remotely. This journey has allowed me to partner with clients in more than 10 countries, helping them overcome technical hurdles and achieve their goals from thousands of miles away.
+                    <p class="text-base sm:text-lg leading-relaxed text-gray-700 mb-4" data-lang-key="aboutBody1">
+                        Leveraging <strong>over 15 years as a seasoned American tech professional</strong>, I deliver unparalleled remote IT support. My extensive experience ensures expert-level solutions, bridging geographical gaps to serve clients globally.
                     </p>
-                    <p class="text-lg leading-relaxed text-gray-700" data-lang-key="aboutBody2">
-                        My experience isn't just technical; it's about understanding different needs, communicating clearly across cultures, and building trust that transcends borders. Whether I'm building a website for a client in Europe, upgrading a Mac for a creative in Australia, or providing IT strategy for a business in the US, my commitment is the same: to deliver effective, reliable, and personalized solutions.
+                    <p class="text-base sm:text-lg leading-relaxed text-gray-700" data-lang-key="aboutBody2">
+                        My expertise isn't just technical; it's about understanding diverse needs, communicating clearly across cultures, and building trust that transcends borders. Whether I'm building a website for a client in Europe, upgrading a Mac for a creative in Australia, or providing IT strategy for a business in the US, my commitment is the same: to deliver effective, reliable, and personalized solutions.
                     </p>
                 </div>
             </div>
         </section>
 
-        <section id="services" class="py-16 md:py-24 bg-gray-50">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12" data-lang-key="servicesMainHeadline">
-                    Comprehensive Digital & Tech Solutions
+        <!-- How It Works Section: Simple 3-step process -->
+        <section id="how-it-works" class="py-16 md:py-24 bg-blue-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-10 sm:mb-12" data-lang-key="howItWorksHeadline">
+                    My Simple Process to Solve Your Tech Challenges
                 </h2>
-
-                <div class="bg-white p-8 rounded-xl shadow-lg">
-                    <p class="text-lg leading-relaxed text-gray-700 mb-8 text-center md:text-left" data-lang-key="servicesIntro">
-                        We offer a full spectrum of remote IT support, consulting, and digital solutions for both individuals and businesses worldwide. Our flexible service delivery includes **convenient remote assistance, efficient onsite repairs, and comprehensive in-shop services** to meet your unique needs.
-                    </p>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                        <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
-                            <h4 class="font-bold text-xl text-blue-800 mb-3" data-lang-key="servicesCategory1Title">IT Support & Troubleshooting</h4>
-                            <ul class="list-disc list-inside text-gray-700 space-y-2">
-                                <li data-lang-key="servicesCategory1Item1">Help Desk Support</li>
-                                <li data-lang-key="servicesCategory1Item2">PC, Mac, Laptop & Desktop Support</li>
-                                <li data-lang-key="servicesCategory1Item3">Mobile & Tablet Support</li>
-                                <li data-lang-key="servicesCategory1Item4">Software & Application Support (Microsoft 365, Adobe)</li>
-                                <li data-lang-key="servicesCategory1Item5">Security & Data Protection (Virus Removal, Online Safety)</li>
-                                <li data-lang-key="servicesCategory1Item6">Printer & Device Troubleshooting</li>
-                                <li data-lang-key="servicesCategory1Item7">Common Software Fixes</li>
-                                <li data-lang-key="servicesCategory1Item8">Hardware Repair & Diagnostics (Onsite & In-Shop)</li>
-                            </ul>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                    <!-- Step 1 -->
+                    <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg border-t-4 border-blue-600">
+                        <div class="text-blue-600 text-5xl mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                         </div>
-                        <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
-                            <h4 class="font-bold text-xl text-blue-800 mb-3" data-lang-key="servicesCategory2Title">System Upgrades & Optimization</h4>
-                            <ul class="list-disc list-inside text-gray-700 space-y-2">
-                                <li data-lang-key="servicesCategory2Item1">Hardware Upgrades (RAM, SSD, Graphics)</li>
-                                <li data-lang-key="servicesCategory2Item2">Software & OS Upgrades</li>
-                                <li data-lang-key="servicesCategory2Item3">Device Optimization & Tune-Ups</li>
-                                <li data-lang-key="servicesCategory2Item4">Computer Speed Boost</li>
-                            </ul>
+                        <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3" data-lang-key="howItWorksStep1Title">1. Schedule Your Consultation</h3>
+                        <p class="text-gray-700 text-sm sm:text-base" data-lang-key="howItWorksStep1Desc">Book a convenient time through my Calendly link. We'll discuss your needs and define the best approach.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg border-t-4 border-blue-600">
+                        <div class="text-blue-600 text-5xl mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto"><path d="M14.5 10c-.83 1.25-2 2-2.5 2s-1.67-.75-2.5-2"/><path d="M2 14h6"/><path d="M16 14h6"/><path d="M12 6V2"/><path d="M12 22v-4"/><path d="M4.93 4.93 7.76 7.76"/><path d="M16.24 16.24 19.07 19.07"/><path d="M19.07 4.93 16.24 7.76"/><path d="M7.76 16.24 4.93 19.07"/></svg>
                         </div>
-                        <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
-                            <h4 class="font-bold text-xl text-blue-800 mb-3" data-lang-key="servicesCategory3Title">Web Presence & Digital Growth</h4>
-                            <ul class="list-disc list-inside text-gray-700 space-y-2">
-                                <li data-lang-key="servicesCategory3Item1">Custom Website Building</li>
-                                <li data-lang-key="servicesCategory3Item2">Search Engine Optimization (SEO)</li>
-                                <li data-lang-key="servicesCategory3Item3">Website Maintenance & Security</li>
-                            </ul>
+                        <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3" data-lang-key="howItWorksStep2Title">2. Expert Diagnosis & Plan</h3>
+                        <p class="text-gray-700 text-sm sm:text-base" data-lang-key="howItWorksStep2Desc">I'll remotely diagnose the issue or assess your project, providing a clear action plan and transparent pricing.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg border-t-4 border-blue-600">
+                        <div class="text-blue-600 text-5xl mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                         </div>
-                        <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
-                            <h4 class="font-bold text-xl text-blue-800 mb-3" data-lang-key="servicesCategory4Title">Strategic IT Consulting</h4>
-                            <ul class="list-disc list-inside text-gray-700 space-y-2">
-                                <li data-lang-key="servicesCategory4Item1">IT & Technology Consulting</li>
-                                <li data-lang-key="servicesCategory4Item2">Custom PC Builds</li>
-                                <li data-lang-key="servicesCategory4Item3">Professional Streaming Setup</li>
-                                <li data-lang-key="servicesCategory4Item4">Business Continuity & Disaster Recovery Planning</li>
-                            </ul>
-                        </div>
-                        <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
-                            <h4 class="font-bold text-xl text-blue-800 mb-3" data-lang-key="servicesCategory5Title">Managed IT & Operations</h4>
-                            <ul class="list-disc list-inside text-gray-700 space-y-2">
-                                <li data-lang-key="servicesCategory5Item1">Managed IT Services</li>
-                                <li data-lang-key="servicesCategory5Item2">Vendor Management</li>
-                                <li data-lang-key="servicesCategory5Item3">IT Reporting & Automation</li>
-                            </ul>
-                        </div>
-                        <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
-                            <h4 class="font-bold text-xl text-blue-800 mb-3" data-lang-key="servicesCategory6Title">Cloud & Network Solutions</h4>
-                            <ul class="list-disc list-inside text-gray-700 space-y-2">
-                                <li data-lang-key="servicesCategory6Item1">Cloud Computing Services</li>
-                                <li data-lang-key="servicesCategory6Item2">Network Management</li>
-                                <li data-lang-key="servicesCategory6Item3">VoIP & Unified Communications</li>
-                            </ul>
-                        </div>
-                        <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
-                            <h4 class="font-bold text-xl text-blue-800 mb-3" data-lang-key="servicesCategory7Title">Software Development</h4>
-                            <ul class="list-disc list-inside text-gray-700 space-y-2">
-                                <li data-lang-key="servicesCategory7Item1">Custom Software & Application Development</li>
-                            </ul>
-                        </div>
-                        <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
-                            <h4 class="font-bold text-xl text-blue-800 mb-3" data-lang-key="servicesCategory8Title">Data Management & Training</h4>
-                            <ul class="list-disc list-inside text-gray-700 space-y-2">
-                                <li data-lang-key="servicesCategory8Item1">Data Backup & Recovery</li>
-                                <li data-lang-key="servicesCategory8Item2">Mobile Device & Network Management</li>
-                                <li data-lang-key="servicesCategory8Item3">Automatic Photo Backup Setup</li>
-                                <li data-lang-key="servicesCategory8Item4">New Device Setup & Configuration</li>
-                                <li data-lang-key="servicesCategory8Item5">Personalized Technology Training</li>
-                            </ul>
-                        </div>
+                        <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3" data-lang-key="howItWorksStep3Title">3. Implement & Optimize</h3>
+                        <p class="text-gray-700 text-sm sm:text-base" data-lang-key="howItWorksStep3Desc">Solutions are implemented efficiently, followed by testing and optimization to ensure lasting results and your complete satisfaction.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <hr class="my-8">
-
-        <section id="contact" class="py-16 md:py-24 bg-blue-50">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-8" data-lang-key="contactHeadline">
-                    Schedule Your Consultation
+        <!-- Services Section: Detailed list of tech solutions offered -->
+        <section id="services" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 text-center mb-10 sm:mb-12" data-lang-key="servicesMainHeadline">
+                    My Comprehensive Tech Solutions
                 </h2>
-                <p class="text-lg leading-relaxed text-gray-700 mb-8 text-center max-w-2xl mx-auto" data-lang-key="contactIntro">
-                    Ready to discuss your tech needs? Use the calendar below to book a convenient time for a personalized consultation. I look forward to connecting with you!
+
+                <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-gray-100">
+                    <p class="text-base sm:text-lg leading-relaxed text-gray-700 mb-8 sm:mb-10 text-center max-w-3xl mx-auto" data-lang-key="servicesIntro">
+                        I offer a full spectrum of remote IT support, consulting, and digital solutions for both individuals and businesses worldwide. My flexible service delivery includes <strong>convenient remote assistance, efficient onsite repairs, and comprehensive in-shop services</strong> to meet your unique needs.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                        <!-- Service Category 1: IT Support & Troubleshooting -->
+                        <div class="bg-blue-50 p-6 rounded-lg shadow-md border-t-4 border-blue-600 hover:shadow-lg transition-shadow duration-300">
+                            <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3 sm:mb-4 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M17 18a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2H17z"/><path d="M12 15h.01"/></svg>
+                                <span data-lang-key="servicesCategory1Title">IT Support & Troubleshooting</span>
+                            </h3>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm sm:text-base">
+                                <li data-lang-key="servicesCategory1Item1">Help Desk Support & Remote Assistance</li>
+                                <li data-lang-key="servicesCategory1Item2">PC, Mac, Laptop & Desktop Support</li>
+                                <li data-lang-key="servicesCategory1Item3">Software & Application Support (Microsoft 365, local applications, Chrome, Internet Explorer, Adobe)</li>
+                                <li data-lang-key="servicesCategory1Item4">Security & Data Protection (Virus Removal, Online Safety Practice and Prevention, Data and drive encryption)</li>
+                                <li data-lang-key="servicesCategory1Item5">Hardware Repair & Diagnostics (Onsite & In-Shop)</li>
+                            </ul>
+                        </div>
+                        <!-- Service Category 2: System Upgrades & Optimization -->
+                        <div class="bg-blue-50 p-6 rounded-lg shadow-md border-t-4 border-blue-600 hover:shadow-lg transition-shadow duration-300">
+                            <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3 sm:mb-4 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 20h.01"/><path d="M12 16h.01"/><path d="M12 12h.01"/><path d="M12 8h.01"/><path d="M12 4h.01"/><path d="M17.8 17.8l-1.4-1.4"/><path d="M19.2 12.8l-1.4-1.4"/><path d="M17.8 6.2l-1.4 1.4"/><path d="M12.8 4.8l-1.4 1.4"/><path d="M6.2 6.2l1.4 1.4"/><path d="M4.8 12.8l1.4 1.4"/><path d="M6.2 17.8l1.4-1.4"/><path d="M12.8 19.2l-1.4-1.4"/></svg>
+                                <span data-lang-key="servicesCategory2Title">System Upgrades & Optimization</span>
+                            </h3>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm sm:text-base">
+                                <li data-lang-key="servicesCategory2Item1">Hardware Upgrades (RAM, SSD, Graphics Cards)</li>
+                                <li data-lang-key="servicesCategory2Item2">Software & Operating System Upgrades</li>
+                                <li data-lang-key="servicesCategory2Item3">Device Optimization & Performance Tune-Ups</li>
+                                <li data-lang-key="servicesCategory2Item4">Computer Speed & Efficiency Boost</li>
+                            </ul>
+                        </div>
+                        <!-- Service Category 3: Web Presence & Digital Growth -->
+                        <div class="bg-blue-50 p-6 rounded-lg shadow-md border-t-4 border-blue-600 hover:shadow-lg transition-shadow duration-300">
+                            <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3 sm:mb-4 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07L9.54 5.46c-.45.45-.78.95-.99 1.48L7.07 9.54a5 5 0 0 0 .54 7.54L10 13z"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.77-1.77c.45-.45.78-.95.99-1.48L14 11z"/></svg>
+                                <span data-lang-key="servicesCategory3Title">Web Presence & Digital Growth</span>
+                            </h3>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm sm:text-base">
+                                <li data-lang-key="servicesCategory3Item1">Custom Website Design & Development</li>
+                                <li data-lang-key="servicesCategory3Item2">Search Engine Optimization (SEO) Strategies</li>
+                                <li data-lang-key="servicesCategory3Item3">Website Maintenance & Security Audits</li>
+                                <li data-lang-key="servicesCategory3Item4">Social Media Account Creation and Management</li>
+                                <li data-lang-key="servicesCategory3Item5">Social Media Analytics and Consultation</li>
+                            </ul>
+                        </div>
+                        <!-- Service Category 4: Strategic IT Consulting -->
+                        <div class="bg-blue-50 p-6 rounded-lg shadow-md border-t-4 border-blue-600 hover:shadow-lg transition-shadow duration-300">
+                            <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3 sm:mb-4 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 15a6 6 0 0 0 0-12v12z"/><path d="M12 15a6 6 0 0 1 6 6H6a6 6 0 0 1 6-6z"/><path d="M12 15a6 6 0 0 0 6-6H6a6 6 0 0 0 6 6z"/></svg>
+                                <span data-lang-key="servicesCategory4Title">Strategic IT Consulting</span>
+                            </h3>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm sm:text-base">
+                                <li data-lang-key="servicesCategory4Item1">IT & Technology Advisory Services</li>
+                                <li data-lang-key="servicesCategory4Item2">Custom PC/Server Builds & Component Selection, virtualization, maintenance</li>
+                                <li data-lang-key="servicesCategory4Item3">Professional Streaming & Home Office Setup</li>
+                                <li data-lang-key="servicesCategory4Item4">Business Continuity & Disaster Recovery Planning</li>
+                            </ul>
+                        </div>
+                        <!-- Service Category 5: Data Management & Training -->
+                        <div class="bg-blue-50 p-6 rounded-lg shadow-md border-t-4 border-blue-600 hover:shadow-lg transition-shadow duration-300">
+                            <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3 sm:mb-4 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 12V2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V12z"/><polyline points="12 2 12 12 22 12"/></svg>
+                                <span data-lang-key="servicesCategory8Title">Data Management & Training</span>
+                            </h3>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm sm:text-base">
+                                <li data-lang-key="servicesCategory8Item1">Data Backup & Recovery Solutions</li>
+                                <li data-lang-key="servicesCategory8Item2">Mobile Device, Tablet (Apple, Samsung and more), Laptop/desktop data management</li>
+                                <li data-lang-key="servicesCategory8Item3">Network Setup, configuration and Management (Home, SMB and Enterprise)</li>
+                                <li data-lang-key="servicesCategory8Item4">User and group setup, configuration and management (Active Directory, Workgroup, Identity Access Management, MDM)</li>
+                                <li data-lang-key="servicesCategory8Item5">New Device Setup & Configuration</li>
+                                <li data-lang-key="servicesCategory8Item6">Personalized Technology Training & Workshops</li>
+                            </ul>
+                        </div>
+                        <!-- Service Category 6: Managed IT & Cloud Solutions -->
+                        <div class="bg-blue-50 p-6 rounded-lg shadow-md border-t-4 border-blue-600 hover:shadow-lg transition-shadow duration-300">
+                            <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3 sm:mb-4 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 12c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/><path d="M12 12c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z" opacity=".2"/><path d="M12 12v10"/><path d="M12 12v10" opacity=".2"/><path d="M20 16H4"/><path d="M20 16H4" opacity=".2"/></svg>
+                                <span data-lang-key="servicesCategory5Title">Managed IT & Cloud Solutions</span>
+                            </h3>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm sm:text-base">
+                                <li data-lang-key="servicesCategory5Item1">Managed IT Services & Remote Monitoring</li>
+                                <li data-lang-key="servicesCategory5Item2">Cloud Computing Services (Setup, Migration, Management)</li>
+                                <li data-lang-key="servicesCategory5Item3">Network Infrastructure & Security</li>
+                                <li data-lang-key="servicesCategory5Item4">Vendor Management & IT Automation</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Consolidated Section: Digital Skills & Literacy (including English proficiency training) -->
+                    <div class="mt-12 pt-8 border-t border-gray-200">
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-gray-900 text-center mb-6" data-lang-key="digitalSkillsHeadline">
+                            Digital Skills & Literacy
+                        </h3>
+                        <p class="text-base sm:text-lg leading-relaxed text-gray-700 mb-10 text-center max-w-3xl mx-auto" data-lang-key="digitalSkillsIntro">
+                            Demystify technology and gain essential digital skills with a professional by your side. These comprehensive tutor and online classes are perfect for anyone looking to understand the modern digital landscape, including non-English professionals needing to master corporate English communication crucial for professional success in global environments.
+                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                            <!-- Digital Skills Category 1: IT Fundamentals & Digital Literacy -->
+                            <div class="bg-blue-50 p-6 rounded-lg shadow-md border-t-4 border-blue-600 hover:shadow-lg transition-shadow duration-300">
+                                <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3 sm:mb-4 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                    <span data-lang-key="digitalCategory1Title">IT Fundamentals & Digital Literacy</span>
+                                </h3>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm sm:text-base">
+                                    <li data-lang-key="digitalCategory1Item1">From understanding your computer's basics to navigating the internet safely, we cover essential IT concepts.</li>
+                                    <li data-lang-key="digitalCategory1Item2">Learn about operating systems, basic networking, and how to effectively use common digital tools.</li>
+                                </ul>
+                            </div>
+                            <!-- Digital Skills Category 2: Productivity Tools & Software Mastery -->
+                            <div class="bg-blue-50 p-6 rounded-lg shadow-md border-t-4 border-blue-600 hover:shadow-lg transition-shadow duration-300">
+                                <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3 sm:mb-4 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+                                    <span data-lang-key="digitalCategory2Title">Productivity Tools & Software Mastery</span>
+                                </h3>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm sm:text-base">
+                                    <li data-lang-key="digitalCategory2Item1">Unlock the power of essential software like Microsoft Office (Word, Excel, PowerPoint) and Google Workspace (Docs, Sheets, Slides).</li>
+                                    <li data-lang-key="digitalCategory2Item2">We'll show you how to use these tools efficiently for work, study, or personal organization.</li>
+                                </ul>
+                            </div>
+                            <!-- Digital Skills Category 3: Online Safety & Cybersecurity Basics -->
+                            <div class="bg-blue-50 p-6 rounded-lg shadow-md border-t-4 border-blue-600 hover:shadow-lg transition-shadow duration-300">
+                                <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3 sm:mb-4 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                    <span data-lang-key="digitalCategory3Title">Online Safety & Cybersecurity Basics</span>
+                                </h3>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm sm:text-base">
+                                    <li data-lang-key="digitalCategory3Item1">Protect yourself in the digital age. Learn critical cybersecurity practices, how to recognize online threats, manage your privacy, and keep your personal information secure.</li>
+                                </ul>
+                            </div>
+                            <!-- Digital Skills Category 4: Introduction to Tech Careers & Industry Insights -->
+                            <div class="bg-blue-50 p-6 rounded-lg shadow-md border-t-4 border-blue-600 hover:shadow-lg transition-shadow duration-300">
+                                <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3 sm:mb-4 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                    <span data-lang-key="digitalCategory4Title">Introduction to Tech Careers & Industry Insights</span>
+                                </h3>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm sm:text-base">
+                                    <li data-lang-key="digitalCategory4Item1">Curious about the tech industry? We provide clear, straightforward explanations of different tech roles (e.g., product manager, UX designer, data analyst) and discuss current industry trends, helping you explore potential career paths.</li>
+                                </ul>
+                            </div>
+                            <!-- New Digital Skills Category: Online Digital Accounts Setup & Management -->
+                            <div class="bg-blue-50 p-6 rounded-lg shadow-md border-t-4 border-blue-600 hover:shadow-lg transition-shadow duration-300">
+                                <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3 sm:mb-4 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                    <span data-lang-key="digitalCategory5Title">Online Digital Accounts Setup & Management</span>
+                                </h3>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm sm:text-base">
+                                    <li data-lang-key="digitalCategory5Item1">I'll set up, configure, and manage your essential online accounts (email, cloud storage, social media profiles) for optimal security and accessibility.</li>
+                                </ul>
+                            </div>
+                            <!-- New Digital Skills Category: Budget-Friendly Device Recommendations -->
+                            <div class="bg-blue-50 p-6 rounded-lg shadow-md border-t-4 border-blue-600 hover:shadow-lg transition-shadow duration-300">
+                                <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3 sm:mb-4 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                    <span data-lang-key="digitalCategory6Title">Budget-Friendly Device Recommendations</span>
+                                </h3>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm sm:text-base">
+                                    <li data-lang-key="digitalCategory6Item1">Receive unbiased, budget-friendly recommendations for laptops, desktops, mobile devices, and peripherals, ensuring you invest in technology that truly meets your needs without overspending.</li>
+                                </ul>
+                            </div>
+                            <!-- New Digital Skills Category: Smart Home Integration & Automation -->
+                            <div class="bg-blue-50 p-6 rounded-lg shadow-md border-t-4 border-blue-600 hover:shadow-lg transition-shadow duration-300">
+                                <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3 sm:mb-4 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                    <span data-lang-key="digitalCategory7Title">Smart Home Integration & Automation</span>
+                                </h3>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm sm:text-base">
+                                    <li data-lang-key="digitalCategory7Item1">Transform your home into a smart, connected space. I'll help you select, set up, and integrate smart devices (lighting, security, thermostats, entertainment systems) for convenience, efficiency, and peace of mind.</li>
+                                </ul>
+                            </div>
+                            <!-- New Digital Skills Category: Cloud Storage & Data Synchronization Optimization -->
+                            <div class="bg-blue-50 p-6 rounded-lg shadow-md border-t-4 border-blue-600 hover:shadow-lg transition-shadow duration-300">
+                                <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3 sm:mb-4 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                    <span data-lang-key="digitalCategory8Title">Cloud Storage & Data Synchronization Optimization</span>
+                                </h3>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm sm:text-base">
+                                    <li data-lang-key="digitalCategory8Item1">Beyond basic backups, I'll optimize your cloud storage solutions (Google Drive, OneDrive, Dropbox, iCloud) for seamless data synchronization across all your devices, efficient file sharing, and robust data security.</li>
+                                </ul>
+                            </div>
+                            <!-- New Digital Skills Category: Remote Workstation & Home Office Setup -->
+                            <div class="bg-blue-50 p-6 rounded-lg shadow-md border-t-4 border-blue-600 hover:shadow-lg transition-shadow duration-300">
+                                <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3 sm:mb-4 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                    <span data-lang-key="digitalCategory9Title">Remote Workstation & Home Office Setup</span>
+                                </h3>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm sm:text-base">
+                                    <li data-lang-key="digitalCategory9Item1">Design and optimize your ideal remote work environment. From ergonomic setup and high-performance hardware selection to reliable network connectivity and collaboration tool integration, I ensure your home office is productive and professional.</li>
+                                </ul>
+                            </div>
+                            <!-- New Digital Skills Category: Digital Decluttering & Organization -->
+                            <div class="bg-blue-50 p-6 rounded-lg shadow-md border-t-4 border-blue-600 hover:shadow-lg transition-shadow duration-300">
+                                <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3 sm:mb-4 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                    <span data-lang-key="digitalCategory10Title">Digital Decluttering & Organization</span>
+                                </h3>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm sm:text-base">
+                                    <li data-lang-key="digitalCategory10Item1">Reclaim your digital life. I'll help you organize files, clean up your inbox, manage digital photos, and streamline your digital footprint for improved efficiency and reduced stress.</li>
+                                </ul>
+                            </div>
+                            <!-- New Digital Skills Category: Small Business IT Audit & Strategy -->
+                            <div class="bg-blue-50 p-6 rounded-lg shadow-md border-t-4 border-blue-600 hover:shadow-lg transition-shadow duration-300">
+                                <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3 sm:mb-4 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                    <span data-lang-key="digitalCategory11Title">Small Business IT Audit & Strategy</span>
+                                </h3>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm sm:text-base">
+                                    <li data-lang-key="digitalCategory11Item1">For small to medium-sized businesses, I offer comprehensive IT infrastructure audits, identifying vulnerabilities and recommending strategic technology roadmaps to enhance efficiency, security, and scalability.</li>
+                                </ul>
+                            </div>
+                            <!-- English Proficiency Training Categories (now part of Digital Skills & Literacy) -->
+                            <div class="bg-blue-50 p-6 rounded-lg shadow-md border-t-4 border-blue-600 hover:shadow-lg transition-shadow duration-300">
+                                <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3 sm:mb-4 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                    <span data-lang-key="digitalCategory12Title">Business English for Professionals</span>
+                                </h3>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm sm:text-base">
+                                    <li data-lang-key="digitalCategory12Item1">Mastering the vocabulary, phrases, and communication styles specific to business contexts is essential for non-native English speakers in corporate environments.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-blue-50 p-6 rounded-lg shadow-md border-t-4 border-blue-600 hover:shadow-lg transition-shadow duration-300">
+                                <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3 sm:mb-4 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                    <span data-lang-key="digitalCategory13Title">Speaking Skills for Corporate Settings</span>
+                                </h3>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm sm:text-base">
+                                    <li data-lang-key="digitalCategory13Item1">Gain confidence and clarity in spoken English, vital for presentations, team meetings, client interactions, and day-to-day professional communication.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-blue-50 p-6 rounded-lg shadow-md border-t-4 border-blue-600 hover:shadow-lg transition-shadow duration-300">
+                                <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3 sm:mb-4 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                    <span data-lang-key="digitalCategory14Title">Active Listening & Comprehension</span>
+                                </h3>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm sm:text-base">
+                                    <li data-lang-key="digitalCategory14Item1">Develop crucial active listening skills for understanding instructions, feedback, and engaging effectively in discussions within a business context.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-blue-50 p-6 rounded-lg shadow-md border-t-4 border-blue-600 hover:shadow-lg transition-shadow duration-300">
+                                <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3 sm:mb-4 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                    <span data-lang-key="digitalCategory15Title">Professional Reading Comprehension</span>
+                                </h3>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm sm:text-base">
+                                    <li data-lang-key="digitalCategory15Item1">Improve your ability to comprehend complex business documents, reports, emails, and industry publications, necessary for staying informed and participating effectively.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-blue-50 p-6 rounded-lg shadow-md border-t-4 border-blue-600 hover:shadow-lg transition-shadow duration-300">
+                                <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3 sm:mb-4 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                    <span data-lang-key="digitalCategory16Title">Effective Business Writing</span>
+                                </h3>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm sm:text-base">
+                                    <li data-lang-key="digitalCategory16Item1">Learn clear and concise written communication, focusing on emails, reports, and other business correspondence to convey information accurately and professionally.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-blue-50 p-6 rounded-lg shadow-md border-t-4 border-blue-600 hover:shadow-lg transition-shadow duration-300">
+                                <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3 sm:mb-4 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                    <span data-lang-key="digitalCategory17Title">Interpersonal & Cross-Cultural Communication</span>
+                                </h3>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm sm:text-base">
+                                    <li data-lang-key="digitalCategory17Item1">Build rapport, navigate cultural differences, and understand nonverbal cues crucial for effective teamwork, collaboration, and professional relationships.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-blue-50 p-6 rounded-lg shadow-md border-t-4 border-blue-600 hover:shadow-lg transition-shadow duration-300">
+                                <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3 sm:mb-4 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                    <span data-lang-key="digitalCategory18Title">Impactful Presentation Coaching</span>
+                                </h3>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm sm:text-base">
+                                    <li data-lang-key="digitalCategory18Item1">Develop the ability to deliver engaging and informative presentations in English, crucial for sharing ideas and perspectives with confidence.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-blue-50 p-6 rounded-lg shadow-md border-t-4 border-blue-600 hover:shadow-lg transition-shadow duration-300">
+                                <h3 class="font-bold text-xl sm:text-2xl text-blue-800 mb-3 sm:mb-4 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                    <span data-lang-key="digitalCategory19Title">Problem-Solving & Articulation</span>
+                                </h3>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm sm:text-base">
+                                    <li data-lang-key="digitalCategory19Item1">Enhance your capacity to articulate problems and solutions clearly and concisely in English, vital for effective teamwork and decision-making.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Schedule Button at the bottom of Services section -->
+                    <div class="mt-10 sm:mt-12 text-center">
+                        <a href="https://calendly.com/jameslesesne" target="_blank"
+                           class="inline-block bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105 text-base sm:text-lg"
+                           data-lang-key="scheduleNowButtonServices">
+                            Schedule Your Consultation Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 text-center mb-10 sm:mb-12" data-lang-key="testimonialsHeadline">
+                    What My Clients Say
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 (USA - Austin, TX) -->
+                    <div class="bg-blue-50 p-6 rounded-lg shadow-md border-l-4 border-blue-600">
+                        <p class="text-gray-700 italic mb-4 text-base sm:text-lg" data-lang-key="testimonial1Text">"James transformed my chaotic home network into a seamless system. His remote support for my smart home integration was incredibly efficient and clear. Highly recommend!"</p>
+                        <p class="font-semibold text-blue-800 text-sm sm:text-base" data-lang-key="testimonial1Author">Sarah L., Austin, TX, USA</p>
+                    </div>
+                    <!-- Testimonial 2 (USA - Chicago, IL) -->
+                    <div class="bg-blue-50 p-6 rounded-lg shadow-md border-l-4 border-blue-600">
+                        <p class="text-gray-700 italic mb-4 text-base sm:text-lg" data-lang-key="testimonial2Text">"As a small business owner, I needed a robust cybersecurity strategy. James provided excellent data and drive encryption solutions, giving me immense peace of mind. His expertise is unmatched."</p>
+                        <p class="font-semibold text-blue-800 text-sm sm:text-base" data-lang-key="testimonial2Author">Mark T., Chicago, IL, USA</p>
+                    </div>
+                    <!-- Testimonial 3 (USA - Miami, FL) -->
+                    <div class="bg-blue-50 p-6 rounded-lg shadow-md border-l-4 border-blue-600">
+                        <p class="text-gray-700 italic mb-4 text-base sm:text-lg" data-lang-key="testimonial3Text">"The personalized device training I received was a game-changer. I finally understand how to leverage my new laptop for productivity. James's patience and clarity made learning enjoyable."</p>
+                        <p class="font-semibold text-blue-800 text-sm sm:text-base" data-lang-key="testimonial3Author">Emily R., Miami, FL, USA</p>
+                    </div>
+                    <!-- Testimonial 4 (Argentina - Buenos Aires) -->
+                    <div class="bg-blue-50 p-6 rounded-lg shadow-md border-l-4 border-blue-600">
+                        <p class="text-gray-700 italic mb-4 text-base sm:text-lg" data-lang-key="testimonial4Text">"Necesitaba ayuda con la gestión de mis cuentas de redes sociales para mi startup. James no solo las configuró perfectamente, sino que también me dio valiosos consejos para el análisis. ¡Un verdadero experto digital!"</p>
+                        <p class="font-semibold text-blue-800 text-sm sm:text-base" data-lang-key="testimonial4Author">Diego M., Buenos Aires, Argentina</p>
+                    </div>
+                    <!-- Testimonial 5 (Brazil - Curitiba) -->
+                    <div class="bg-blue-50 p-6 rounded-lg shadow-md border-l-4 border-blue-600">
+                        <p class="text-gray-700 italic mb-4 text-base sm:text-lg" data-lang-key="testimonial5Text">"O suporte do James para a otimização do meu home office foi excepcional. Ele me ajudou a escolher os componentes certos e a configurar tudo para máxima produtividade. Recomendo muito para quem busca soluções de TI de alto nível."</p>
+                        <p class="font-semibold text-blue-800 text-sm sm:text-base" data-lang-key="testimonial5Author">Ana P., Curitiba, Brasil</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section: Call to action, with only one schedule button -->
+        <section id="contact" class="py-16 md:py-24 bg-blue-100">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 sm:mb-8" data-lang-key="contactHeadline">
+                    Unlock Your Tech Potential: Schedule a Consultation.
+                </h2>
+                <p class="text-base sm:text-lg leading-relaxed text-gray-700 mb-8 sm:mb-10 max-w-2xl mx-auto" data-lang-key="contactIntro">
+                    Let's connect and discuss how I can help you achieve your technology goals.
+                    Schedule a free consultation or reach out directly.
                 </p>
 
-                <div class="calendly-inline-widget" data-url="https://calendly.com/jameslesesne" style="min-width:320px;height:700px;"></div>
-                </div>
+                <!-- Only the primary schedule button remains in the contact section -->
+                <a href="https://calendly.com/jameslesesne" target="_blank"
+                   class="inline-block bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105 text-base sm:text-lg"
+                   data-lang-key="scheduleNowButtonServices">
+                    Schedule Your Consultation Now
+                </a>
+            </div>
         </section>
     </main>
 
-    <footer class="bg-gray-900 text-gray-300 py-8">
-        <div class="container mx-auto px-4 text-center text-sm">
-            <p data-lang-key="footerCopyright">&copy; 2024 Global Remote Tech Solutions. All rights reserved.</p>
-            <p class="mt-2" data-lang-key="footerTagline">Designed with expertise and care.</p>
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-6 sm:py-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 text-xs sm:text-sm">
+            &copy; 2025 Lesesne Tech Solutions. All rights reserved.
         </div>
     </footer>
 
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-
+    <!-- JavaScript for Language Toggle, Navigation, and Mobile Menu -->
     <script>
-        // Language content object
-        const websiteContent = {
+        // Language data: Contains all translatable strings for English, Portuguese, and Spanish.
+        const translations = {
             en: {
-                pageTitle: "Global Remote Tech Solutions",
+                pageTitle: "Lesesne Tech Solutions",
                 navHome: "Home",
                 navAbout: "About Me",
                 navServices: "Services",
-                navContact: "Contact", // UPDATED NAV LINK
-                homeHeadline: "World-Class Remote Tech Support.<br class='hidden md:block'>15+ Years of Experience Across 10 Countries.",
-                homeBody: "Stop struggling with technology. Get premier, one-on-one support from an expert who has successfully solved complex tech issues for clients worldwide, entirely remotely. From Curitiba to New York, we provide clear, lasting solutions for your home and business.",
-                homeExpertise: "Our Expertise: Strategic IT Consulting | Custom Website & SEO | Hardware Upgrades | Apple & Microsoft Support",
-                homePayments: "Payments: We proudly accept major credit cards and local payment options for our global clients.",
-                aboutHeadline: "A Global Expert, Your Local Solution.",
-                aboutBody1: "For over 15 years, I have specialized in one thing: providing expert-level IT support entirely remotely. This journey has allowed me to partner with clients in more than 10 countries, helping them overcome technical hurdles and achieve their goals from thousands of miles away.",
-                aboutBody2: "My experience isn't just technical; it's about understanding different needs, communicating clearly across cultures, and building trust that transcends borders. Whether I'm building a website for a client in Europe, upgrading a Mac for a creative in Australia, or providing IT strategy for a business in the US, my commitment is the same: to deliver effective, reliable, and personalized solutions.",
-                servicesMainHeadline: "Comprehensive Digital & Tech Solutions",
-                servicesIntro: "We offer a full spectrum of remote IT support, consulting, and digital solutions for both individuals and businesses worldwide. Our flexible service delivery includes **convenient remote assistance, efficient onsite repairs, and comprehensive in-shop services** to meet your unique needs.",
+                navContact: "Contact",
+                homeHeadline: "Expert Remote Tech Support.<br class=\"hidden md:block\">15+ Years of Proven Experience.",
+                homeBody: "Tired of tech headaches? Experience premier, personalized tech support from an American expert. With over 15 years of proven success, I transform your digital challenges into seamless solutions, remotely serving clients from Curitiba to New York and beyond.",
+                homeExpertise: "My Expertise: Strategic IT Consulting | Custom Website & SEO | Hardware Upgrades | Apple & Microsoft Support",
+                homePayments: "Payments: I proudly accept major credit cards and local payment options for my global clients.",
+                aboutHeadline: "Your American Tech Expert, Globally Connected.",
+                aboutBody1: "Leveraging <strong>over 15 years as a seasoned American tech professional</strong>, I deliver unparalleled remote IT support. My extensive experience ensures expert-level solutions, bridging geographical gaps to serve clients globally.",
+                aboutBody2: "My expertise isn't just technical; it's about understanding diverse needs, communicating clearly across cultures, and building trust that transcends borders. Whether I'm building a website for a client in Europe, upgrading a Mac for a creative in Australia, or providing IT strategy for a business in the US, my commitment is the same: to deliver effective, reliable, and personalized solutions.",
+                howItWorksHeadline: "My Simple Process to Solve Your Tech Challenges",
+                howItWorksStep1Title: "1. Schedule Your Consultation",
+                howItWorksStep1Desc: "Book a convenient time through my Calendly link. We'll discuss your needs and define the best approach.",
+                howItWorksStep2Title: "2. Expert Diagnosis & Plan",
+                howItWorksStep2Desc: "I'll remotely diagnose the issue or assess your project, providing a clear action plan and transparent pricing.",
+                howItWorksStep3Title: "3. Implement & Optimize",
+                howItWorksStep3Desc: "Solutions are implemented efficiently, followed by testing and optimization to ensure lasting results and your complete satisfaction.",
+                servicesMainHeadline: "My Comprehensive Tech Solutions",
+                servicesIntro: "I offer a full spectrum of remote IT support, consulting, and digital solutions for both individuals and businesses worldwide. My flexible service delivery includes <strong>convenient remote assistance, efficient onsite repairs, and comprehensive in-shop services</strong> to meet your unique needs.",
                 servicesCategory1Title: "IT Support & Troubleshooting",
-                servicesCategory1Item1: "Help Desk Support",
+                servicesCategory1Item1: "Help Desk Support & Remote Assistance",
                 servicesCategory1Item2: "PC, Mac, Laptop & Desktop Support",
-                servicesCategory1Item3: "Mobile & Tablet Support",
-                servicesCategory1Item4: "Software & Application Support (Microsoft 365, Adobe)",
-                servicesCategory1Item5: "Security & Data Protection (Virus Removal, Online Safety)",
-                servicesCategory1Item6: "Printer & Device Troubleshooting",
-                servicesCategory1Item7: "Common Software Fixes",
-                servicesCategory1Item8: "Hardware Repair & Diagnostics (Onsite & In-Shop)",
+                servicesCategory1Item3: "Software & Application Support (Microsoft 365, local applications, Chrome, Internet Explorer, Adobe)",
+                servicesCategory1Item4: "Security & Data Protection (Virus Removal, Online Safety Practice and Prevention, Data and drive encryption)",
+                servicesCategory1Item5: "Hardware Repair & Diagnostics (Onsite & In-Shop)",
                 servicesCategory2Title: "System Upgrades & Optimization",
-                servicesCategory2Item1: "Hardware Upgrades (RAM, SSD, Graphics)",
-                servicesCategory2Item2: "Software & OS Upgrades",
-                servicesCategory2Item3: "Device Optimization & Tune-Ups",
-                servicesCategory2Item4: "Computer Speed Boost",
+                servicesCategory2Item1: "Hardware Upgrades (RAM, SSD, Graphics Cards)",
+                servicesCategory2Item2: "Software & Operating System Upgrades",
+                servicesCategory2Item3: "Device Optimization & Performance Tune-Ups",
+                servicesCategory2Item4: "Computer Speed & Efficiency Boost",
                 servicesCategory3Title: "Web Presence & Digital Growth",
-                servicesCategory3Item1: "Custom Website Building",
-                servicesCategory3Item2: "Search Engine Optimization (SEO)",
-                servicesCategory3Item3: "Website Maintenance & Security",
+                servicesCategory3Item1: "Custom Website Design & Development",
+                servicesCategory3Item2: "Search Engine Optimization (SEO) Strategies",
+                servicesCategory3Item3: "Website Maintenance & Security Audits",
+                servicesCategory3Item4: "Social Media Account Creation and Management",
+                servicesCategory3Item5: "Social Media Analytics and Consultation",
                 servicesCategory4Title: "Strategic IT Consulting",
-                servicesCategory4Item1: "IT & Technology Consulting",
-                servicesCategory4Item2: "Custom PC Builds",
-                servicesCategory4Item3: "Professional Streaming Setup",
+                servicesCategory4Item1: "IT & Technology Advisory Services",
+                servicesCategory4Item2: "Custom PC/Server Builds & Component Selection, virtualization, maintenance",
+                servicesCategory4Item3: "Professional Streaming & Home Office Setup",
                 servicesCategory4Item4: "Business Continuity & Disaster Recovery Planning",
-                servicesCategory5Title: "Managed IT & Operations",
-                servicesCategory5Item1: "Managed IT Services",
-                servicesCategory5Item2: "Vendor Management",
-                servicesCategory5Item3: "IT Reporting & Automation",
-                servicesCategory6Title: "Cloud & Network Solutions",
-                servicesCategory6Item1: "Cloud Computing Services",
-                servicesCategory6Item2: "Network Management",
-                servicesCategory6Item3: "VoIP & Unified Communications",
-                servicesCategory7Title: "Software Development",
-                servicesCategory7Item1: "Custom Software & Application Development",
                 servicesCategory8Title: "Data Management & Training",
-                servicesCategory8Item1: "Data Backup & Recovery",
-                servicesCategory8Item2: "Mobile Device & Network Management",
-                servicesCategory8Item3: "Automatic Photo Backup Setup",
-                servicesCategory8Item4: "New Device Setup & Configuration",
-                servicesCategory8Item5: "Personalized Technology Training",
-
-                // NEW: Contact Section Language Keys
-                contactHeadline: "Schedule Your Consultation",
-                contactIntro: "Ready to discuss your tech needs? Use the calendar below to book a convenient time for a personalized consultation. I look forward to connecting with you!",
-
-                footerCopyright: "&copy; 2024 Global Remote Tech Solutions. All rights reserved.",
-                footerTagline: "Designed with expertise and care."
+                servicesCategory8Item1: "Data Backup & Recovery Solutions",
+                servicesCategory8Item2: "Mobile Device, Tablet (Apple, Samsung and more), Laptop/desktop data management",
+                servicesCategory8Item3: "Network Setup, configuration and Management (Home, SMB and Enterprise)",
+                servicesCategory8Item4: "User and group setup, configuration and management (Active Directory, Workgroup, Identity Access Management, MDM)",
+                servicesCategory8Item5: "New Device Setup & Configuration",
+                servicesCategory8Item6: "Personalized Technology Training & Workshops",
+                servicesCategory5Title: "Managed IT & Cloud Solutions",
+                servicesCategory5Item1: "Managed IT Services & Remote Monitoring",
+                servicesCategory5Item2: "Cloud Computing Services (Setup, Migration, Management)",
+                servicesCategory5Item3: "Network Infrastructure & Security",
+                servicesCategory5Item4: "Vendor Management & IT Automation",
+                digitalSkillsHeadline: "Digital Skills & Literacy",
+                digitalSkillsIntro: "Demystify technology and gain essential digital skills with a professional by your side. These comprehensive tutor and online classes are perfect for anyone looking to understand the modern digital landscape, including non-English professionals needing to master corporate English communication crucial for professional success in global environments.",
+                digitalCategory1Title: "IT Fundamentals & Digital Literacy",
+                digitalCategory1Item1: "From understanding your computer's basics to navigating the internet safely, we cover essential IT concepts.",
+                digitalCategory1Item2: "Learn about operating systems, basic networking, and how to effectively use common digital tools.",
+                digitalCategory2Title: "Productivity Tools & Software Mastery",
+                digitalCategory2Item1: "Unlock the power of essential software like Microsoft Office (Word, Excel, PowerPoint) and Google Workspace (Docs, Sheets, Slides).",
+                digitalCategory2Item2: "We'll show you how to use these tools efficiently for work, study, or personal organization.",
+                digitalCategory3Title: "Online Safety & Cybersecurity Basics",
+                digitalCategory3Item1: "Protect yourself in the digital age. Learn critical cybersecurity practices, how to recognize online threats, manage your privacy, and keep your personal information secure.",
+                digitalCategory4Title: "Introduction to Tech Careers & Industry Insights",
+                digitalCategory4Item1: "Curious about the tech industry? We provide clear, straightforward explanations of different tech roles (e.g., product manager, UX designer, data analyst) and discuss current industry trends, helping you explore potential career paths.",
+                digitalCategory5Title: "Online Digital Accounts Setup & Management",
+                digitalCategory5Item1: "I'll set up, configure, and manage your essential online accounts (email, cloud storage, social media profiles) for optimal security and accessibility.",
+                digitalCategory6Title: "Budget-Friendly Device Recommendations",
+                digitalCategory6Item1: "Receive unbiased, budget-friendly recommendations for laptops, desktops, mobile devices, and peripherals, ensuring you invest in technology that truly meets your needs without overspending.",
+                digitalCategory7Title: "Smart Home Integration & Automation",
+                digitalCategory7Item1: "Transform your home into a smart, connected space. I'll help you select, set up, and integrate smart devices (lighting, security, thermostats, entertainment systems) for convenience, efficiency, and peace of mind.",
+                digitalCategory8Title: "Cloud Storage & Data Synchronization Optimization",
+                digitalCategory8Item1: "Beyond basic backups, I'll optimize your cloud storage solutions (Google Drive, OneDrive, Dropbox, iCloud) for seamless data synchronization across all your devices, efficient file sharing, and robust data security.",
+                digitalCategory9Title: "Remote Workstation & Home Office Setup",
+                digitalCategory9Item1: "Design and optimize your ideal remote work environment. From ergonomic setup and high-performance hardware selection to reliable network connectivity and collaboration tool integration, I ensure your home office is productive and professional.",
+                digitalCategory10Title: "Digital Decluttering & Organization",
+                digitalCategory10Item1: "Reclaim your digital life. I'll help you organize files, clean up your inbox, manage digital photos, and streamline your digital footprint for improved efficiency and reduced stress.",
+                digitalCategory11Title: "Small Business IT Audit & Strategy",
+                digitalCategory11Item1: "For small to medium-sized businesses, I offer comprehensive IT infrastructure audits, identifying vulnerabilities and recommending strategic technology roadmaps to enhance efficiency, security, and scalability.",
+                digitalCategory12Title: "Business English for Professionals",
+                digitalCategory12Item1: "Mastering the vocabulary, phrases, and communication styles specific to business contexts is essential for non-native English speakers in corporate environments.",
+                digitalCategory13Title: "Speaking Skills for Corporate Settings",
+                digitalCategory13Item1: "Gain confidence and clarity in spoken English, vital for presentations, team meetings, client interactions, and day-to-day professional communication.",
+                digitalCategory14Title: "Active Listening & Comprehension",
+                digitalCategory14Item1: "Develop crucial active listening skills for understanding instructions, feedback, and engaging effectively in discussions within a business context.",
+                digitalCategory15Title: "Professional Reading Comprehension",
+                digitalCategory15Item1: "Improve your ability to comprehend complex business documents, reports, emails, and industry publications, necessary for staying informed and participating effectively.",
+                digitalCategory16Title: "Effective Business Writing",
+                digitalCategory16Item1: "Learn clear and concise written communication, focusing on emails, reports, and other business correspondence to convey information accurately and professionally.",
+                digitalCategory17Title: "Interpersonal & Cross-Cultural Communication",
+                digitalCategory17Item1: "Build rapport, navigate cultural differences, and understand nonverbal cues crucial for effective teamwork, collaboration, and professional relationships.",
+                digitalCategory18Title: "Impactful Presentation Coaching",
+                digitalCategory18Item1: "The ability to deliver engaging and informative presentations is crucial for sharing ideas and perspectives.",
+                digitalCategory19Title: "Problem-Solving & Articulation",
+                digitalCategory19Item1: "Enhance your capacity to articulate problems and solutions clearly and concisely in English, vital for effective teamwork and decision-making.",
+                testimonialsHeadline: "What My Clients Say",
+                testimonial1Text: "James transformed my chaotic home network into a seamless system. His remote support for my smart home integration was incredibly efficient and clear. Highly recommend!",
+                testimonial1Author: "Sarah L., Austin, TX, USA",
+                testimonial2Text: "As a small business owner, I needed a robust cybersecurity strategy. James provided excellent data and drive encryption solutions, giving me immense peace of mind. His expertise is unmatched.",
+                testimonial2Author: "Mark T., Chicago, IL, USA",
+                testimonial3Text: "The personalized device training I received was a game-changer. I finally understand how to leverage my new laptop for productivity. James's patience and clarity made learning enjoyable.",
+                testimonial3Author: "Emily R., Miami, FL, USA",
+                testimonial4Text: "Necesitaba ayuda con la gestión de mis cuentas de redes sociales para mi startup. James no solo las configuró perfectamente, sino que también me dio valiosos consejos para el análisis. ¡Un verdadero experto digital!",
+                testimonial4Author: "Diego M., Buenos Aires, Argentina",
+                testimonial5Text: "O suporte do James para a otimização do meu home office foi excepcional. Ele me ajudou a escolher os componentes certos e a configurar tudo para máxima produtividade. Recomendo muito para quem busca soluções de TI de alto nível.",
+                testimonial5Author: "Ana P., Curitiba, Brasil",
+                scheduleNowButtonServices: "Schedule Your Consultation Now",
+                contactHeadline: "Unlock Your Tech Potential: Schedule a Consultation.",
+                contactIntro: "Let's connect and discuss how I can help you achieve your technology goals. Schedule a free consultation or reach out directly.",
             },
             pt: {
-                pageTitle: "Soluções Tecnológicas Remotas Globais",
+                pageTitle: "Lesesne Tech Solutions",
                 navHome: "Início",
                 navAbout: "Sobre Mim",
                 navServices: "Serviços",
-                navContact: "Contato", // UPDATED NAV LINK
-                homeHeadline: "Suporte Técnico Remoto de Classe Mundial.<br class='hidden md:block'>Mais de 15 Anos de Experiência em 10 Países.",
-                homeBody: "Pare de lutar com a tecnologia. Obtenha suporte individual e especializado de um expert que já resolveu problemas complexos para clientes ao redor do mundo, de forma 100% remota. De Curitiba a Nova York, oferecemos soluções claras e duradouras para sua casa e seu negócio.",
-                homeExpertise: "Nossa Expertise: Consultoria Estratégica de TI | Criação de Sites & SEO | Upgrades de Hardware | Suporte Apple & Microsoft",
-                homePayments: "Pagamentos: Aceitamos os principais cartões de crédito e opções de pagamento locais para nossos clientes globais.",
-                aboutHeadline: "Um Especialista Global, Sua Solução Local.",
-                aboutBody1: "Há mais de 15 anos, eu me especializei em uma coisa: fornecer suporte de TI de nível sênior de forma totalmente remota. Essa jornada me permitiu colaborar com clientes em mais de 10 países, ajudando-os a superar barreiras técnicas e alcançar seus objetivos a milhares de quilômetros de distância.",
-                aboutBody2: "Minha experiência não é apenas técnica; trata-se de entender diferentes necessidades, comunicar-se com clareza entre culturas e construir uma confiança que transcende fronteiras. Seja criando um site para um cliente na Europa, fazendo o upgrade de um Mac para um criativo na Austrália, ou definindo a estratégia de TI para uma empresa nos EUA, meu compromisso é o mesmo: entregar soluções eficazes, confiáveis e personalizadas.",
-                servicesMainHeadline: "Soluções Digitais e Tecnológicas Completas",
-                servicesIntro: "Oferecemos um espectro completo de suporte remoto de TI, consultoria e soluções digitais para indivíduos e empresas em todo o mundo. Nossa entrega de serviço flexível inclui **assistência remota conveniente, reparos eficientes no local e serviços abrangentes na loja** para atender às suas necessidades exclusivas.",
-                servicesCategory1Title: "Suporte & Resolução de Problemas",
-                servicesCategory1Item1: "Suporte de Help Desk",
+                navContact: "Contato",
+                homeHeadline: "Suporte Técnico Remoto Especializado.<br class=\"hidden md:block\">Mais de 15 Anos de Experiência Comprovada.",
+                homeBody: "Cansado de dores de cabeça com tecnologia? Experimente um suporte técnico premium e personalizado de um especialista americano. Com mais de 15 anos de sucesso comprovado, transformo seus desafios digitais em soluções contínuas, atendendo clientes remotamente de Curitiba a Nova York e além.",
+                homeExpertise: "Minha Experiência: Consultoria Estratégica de TI | Website Personalizado & SEO | Upgrades de Hardware | Suporte Apple & Microsoft",
+                homePayments: "Pagamentos: Aceito com orgulho os principais cartões de crédito e opções de pagamento locais para meus clientes globais.",
+                aboutHeadline: "Seu Especialista Americano em Tecnologia, Conectado Globalmente.",
+                aboutBody1: "Aproveitando <strong>mais de 15 anos como um profissional de tecnologia americano experiente</strong>, ofereço suporte de TI remoto incomparável. Minha vasta experiência garante soluções de nível especializado, superando lacunas geográficas para atender clientes globalmente.",
+                aboutBody2: "Minha experiência não é apenas técnica; trata-se de entender diversas necessidades, comunicar-se claramente entre culturas e construir confiança que transcende fronteiras. Quer eu esteja construindo um site para um cliente na Europa, atualizando um Mac para um criativo na Austrália ou fornecendo estratégia de TI para uma empresa nos EUA, meu compromisso é o mesmo: entregar soluções eficazes, confiáveis e personalizadas.",
+                howItWorksHeadline: "Meu Processo Simples para Resolver Seus Desafios Tecnológicos",
+                howItWorksStep1Title: "1. Agende Sua Consulta",
+                howItWorksStep1Desc: "Reserve um horário conveniente através do meu link Calendly. Discutiremos suas necessidades e definiremos a melhor abordagem.",
+                howItWorksStep2Title: "2. Diagnóstico e Plano Especializados",
+                howItWorksStep2Desc: "Farei um diagnóstico remoto do problema ou avaliarei seu projeto, fornecendo um plano de ação claro e preços transparentes.",
+                howItWorksStep3Title: "3. Implementar e Otimizar",
+                howItWorksStep3Desc: "As soluções são implementadas de forma eficiente, seguidas por testes e otimização para garantir resultados duradouros e sua total satisfação.",
+                servicesMainHeadline: "Minhas Soluções Abrangentes de Tecnologia",
+                servicesIntro: "Ofereço um espectro completo de suporte remoto de TI, consultoria e soluções digitais para indivíduos e empresas em todo o mundo. Minha entrega de serviço flexível inclui <strong>conveniente assistência remota, reparos eficientes no local e serviços abrangentes na loja</strong> para atender às suas necessidades exclusivas.",
+                servicesCategory1Title: "Suporte e Solução de Problemas de TI",
+                servicesCategory1Item1: "Suporte de Help Desk e Assistência Remota",
                 servicesCategory1Item2: "Suporte para PC, Mac, Laptop e Desktop",
-                servicesCategory1Item3: "Suporte para Celular e Tablet",
-                servicesCategory1Item4: "Suporte para Software e Aplicativos (Microsoft 365, Adobe)",
-                servicesCategory1Item5: "Segurança e Proteção de Dados (Remoção de Vírus, Segurança Online)",
-                servicesCategory1Item6: "Solução de Problemas de Impressoras e Dispositivos",
-                servicesCategory1Item7: "Correções Comuns de Software",
-                servicesCategory1Item8: "Reparo e Diagnóstico de Hardware (No Local e na Loja)",
-                servicesCategory2Title: "Upgrades & Performance",
-                servicesCategory2Item1: "Upgrades de Hardware (RAM, SSD, Gráficos)",
-                servicesCategory2Item2: "Upgrades de Software e SO",
-                servicesCategory2Item3: "Otimização de Dispositivos e Ajustes",
-                servicesCategory2Item4: "Otimização de Velocidade do Computador",
-                servicesCategory3Title: "Presença Web & Crescimento",
-                servicesCategory3Item1: "Criação de Sites Personalizados",
-                servicesCategory3Item2: "Otimização para Buscadores (SEO)",
-                servicesCategory3Item3: "Manutenção e Segurança de Sites",
+                servicesCategory1Item3: "Suporte a Software e Aplicativos (Microsoft 365, aplicativos locais, Chrome, Internet Explorer, Adobe)",
+                servicesCategory1Item4: "Segurança e Proteção de Dados (Remoção de Vírus, Prática e Prevenção de Segurança Online, Criptografia de Dados e Unidades)",
+                servicesCategory1Item5: "Reparo e Diagnóstico de Hardware (No Local e na Loja)",
+                servicesCategory2Title: "Upgrades e Otimização de Sistema",
+                servicesCategory2Item1: "Upgrades de Hardware (RAM, SSD, Placas de Vídeo)",
+                servicesCategory2Item2: "Upgrades de Software e Sistema Operacional",
+                servicesCategory2Item3: "Otimização de Dispositivos e Ajustes de Desempenho",
+                servicesCategory2Item4: "Aumento de Velocidade e Eficiência do Computador",
+                servicesCategory3Title: "Presença na Web e Crescimento Digital",
+                servicesCategory3Item1: "Design e Desenvolvimento de Websites Personalizados",
+                servicesCategory3Item2: "Estratégias de Otimização para Motores de Busca (SEO)",
+                servicesCategory3Item3: "Manutenção de Websites e Auditorias de Segurança",
+                servicesCategory3Item4: "Criação e Gerenciamento de Contas de Mídias Sociais",
+                servicesCategory3Item5: "Análise e Consultoria de Mídias Sociais",
                 servicesCategory4Title: "Consultoria Estratégica de TI",
-                servicesCategory4Item1: "Consultoria de TI e Tecnologia",
-                servicesCategory4Item2: "Montagem de PCs Personalizados",
-                servicesCategory4Item3: "Configuração Profissional de Streaming",
+                servicesCategory4Item1: "Serviços de Consultoria em TI e Tecnologia",
+                servicesCategory4Item2: "Montagem de PCs/Servidores Personalizados e Seleção de Componentes, virtualização, manutenção",
+                servicesCategory4Item3: "Configuração Profissional de Streaming e Escritório Doméstico",
                 servicesCategory4Item4: "Planejamento de Continuidade de Negócios e Recuperação de Desastres",
-                servicesCategory5Title: "TI Gerenciada & Operações",
-                servicesCategory5Item1: "Serviços de TI Gerenciados",
-                servicesCategory5Item2: "Gerenciamento de Fornecedores",
-                servicesCategory5Item3: "IT Reporting & Automation",
-                servicesCategory6Title: "Cloud & Network Solutions",
-                servicesCategory6Item1: "Cloud Computing Services",
-                servicesCategory6Item2: "Gerenciamento de Rede",
-                servicesCategory6Item3: "VoIP & Comunicações Unificadas",
-                servicesCategory7Title: "Desenvolvimento de Software",
-                servicesCategory7Item1: "Desenvolvimento de Software e Aplicativos Personalizados",
                 servicesCategory8Title: "Gerenciamento de Dados e Treinamento",
-                servicesCategory8Item1: "Backup e Recuperação de Dados",
-                servicesCategory8Item2: "Gerenciamento de Dispositivos Móveis e Redes",
-                servicesCategory8Item3: "Configuração de Backup Automático de Fotos",
-                servicesCategory8Item4: "Configuração de Novos Dispositivos",
-                servicesCategory8Item5: "Treinamento Tecnológico Personalizado",
-
-                // NEW: Contact Section Language Keys
-                contactHeadline: "Agende Sua Consulta",
-                contactIntro: "Pronto para discutir suas necessidades tecnológicas? Use o calendário abaixo para reservar um horário conveniente para uma consulta personalizada. Estou ansioso para conectar com você!",
-
-                footerCopyright: "&copy; 2024 Soluções Tecnológicas Remotas Globais. Todos os direitos reservados.",
-                footerTagline: "Desenvolvido com expertise e cuidado."
+                servicesCategory8Item1: "Soluções de Backup e Recuperação de Dados",
+                servicesCategory8Item2: "Gerenciamento de Dados de Dispositivos Móveis, Tablets (Apple, Samsung e mais), Laptops/desktops",
+                servicesCategory8Item3: "Configuração e Gerenciamento de Rede (Casa, SMB e Corporativo)",
+                servicesCategory8Item4: "Configuração e Gerenciamento de Usuários e Grupos (Active Directory, Workgroup, Gerenciamento de Acesso de Identidade, MDM)",
+                servicesCategory8Item5: "Configuração e Instalação de Novos Dispositivos",
+                servicesCategory8Item6: "Treinamento e Workshops de Tecnologia Personalizados",
+                servicesCategory5Title: "Serviços Gerenciados de TI e Soluções em Nuvem",
+                servicesCategory5Item1: "Serviços Gerenciados de TI e Monitoramento Remoto",
+                servicesCategory5Item2: "Serviços de Computação em Nuvem (Configuração, Migração, Gerenciamento)",
+                servicesCategory5Item3: "Infraestrutura e Segurança de Rede",
+                servicesCategory5Item4: "Gerenciamento de Fornecedores e Automação de TI",
+                digitalSkillsHeadline: "Habilidades Digitais e Alfabetização",
+                digitalSkillsIntro: "Desmistifique a tecnologia e adquira habilidades digitais essenciais com um profissional ao seu lado. Estas sessões abrangentes de tutoria e aulas online são perfeitas para quem busca entender o cenário digital moderno, incluindo profissionais não-nativos de inglês que precisam dominar a comunicação corporativa em inglês, crucial para o sucesso profissional em ambientes globais.",
+                digitalCategory1Title: "Fundamentos de TI e Alfabetização Digital",
+                digitalCategory1Item1: "Desde a compreensão dos conceitos básicos do seu computador até a navegação segura na internet, cobrimos conceitos essenciais de TI.",
+                digitalCategory1Item2: "Aprenda sobre sistemas operacionais, redes básicas e como usar ferramentas digitais comuns de forma eficaz.",
+                digitalCategory2Title: "Ferramentas de Produtividade e Domínio de Software",
+                digitalCategory2Item1: "Desbloqueie o poder de softwares essenciais como Microsoft Office (Word, Excel, PowerPoint) e Google Workspace (Docs, Sheets, Slides).",
+                digitalCategory2Item2: "Mostraremos como usar essas ferramentas de forma eficiente para trabalho, estudo ou organização pessoal.",
+                digitalCategory3Title: "Segurança Online e Fundamentos de Cibersegurança",
+                digitalCategory3Item1: "Proteja-se na era digital. Aprenda práticas críticas de cibersegurança, como reconhecer ameaças online, gerenciar sua privacidade e manter suas informações pessoais seguras.",
+                digitalCategory4Title: "Introdução a Carreiras em Tecnologia e Insights da Indústria",
+                digitalCategory4Item1: "Curioso sobre a indústria de tecnologia? Fornecemos explicações claras e diretas sobre diferentes funções de tecnologia (por exemplo, gerente de produto, designer de UX, analista de dados) e discutimos as tendências atuais da indústria, ajudando você a explorar possíveis caminhos de carreira.",
+                digitalCategory5Title: "Configuração e Gerenciamento de Contas Digitais Online",
+                digitalCategory5Item1: "Configurarei, configurarei e gerenciarei suas contas online essenciais (e-mail, armazenamento em nuvem, perfis de mídia social) para segurança e acessibilidade ideais.",
+                digitalCategory6Title: "Recomendações de Dispositivos Econômicos",
+                digitalCategory6Item1: "Receba recomendações imparciais e econômicas para laptops, desktops, dispositivos móveis e periféricos, garantindo que você invista em tecnologia que realmente atenda às suas necessidades sem gastar demais.",
+                digitalCategory7Title: "Integração e Automação de Casa Inteligente",
+                digitalCategory7Item1: "Transforme sua casa em um espaço inteligente e conectado. Ajudarei você a selecionar, configurar e integrar dispositivos inteligentes (iluminação, segurança, termostatos, sistemas de entretenimento) para conveniência, eficiência e tranquilidade.",
+                digitalCategory8Title: "Otimização de Armazenamento em Nuvem e Sincronização de Dados",
+                digitalCategory8Item1: "Além dos backups básicos, otimizarei suas soluções de armazenamento em nuvem (Google Drive, OneDrive, Dropbox, iCloud) para sincronização de dados perfeita em todos os seus dispositivos, compartilhamento de arquivos eficiente e segurança de dados robusta.",
+                digitalCategory9Title: "Configuração de Estação de Trabalho Remota e Home Office",
+                digitalCategory9Item1: "Projete e otimize seu ambiente de trabalho remoto ideal. Desde a configuração ergonômica e seleção de hardware de alto desempenho até a conectividade de rede confiável e a integração de ferramentas de colaboração, garanto que seu home office seja produtivo e profissional.",
+                digitalCategory10Title: "Organização e Desordem Digital",
+                digitalCategory10Item1: "Recupere sua vida digital. Ajudarei você a organizar arquivos, limpar sua caixa de entrada, gerenciar fotos digitais e otimizar sua pegada digital para maior eficiência e redução do estresse.",
+                digitalCategory11Title: "Auditoria e Estratégia de TI para Pequenas Empresas",
+                digitalCategory11Item1: "Para pequenas e médias empresas, ofereço auditorias abrangentes de infraestrutura de TI, identificando vulnerabilidades e recomendando roteiros tecnológicos estratégicos para aumentar a eficiência, segurança e escalabilidade.",
+                digitalCategory12Title: "Inglês para Negócios para Profissionais",
+                digitalCategory12Item1: "Dominar o vocabulário, frases e estilos de comunicação específicos para contextos de negócios é essencial para falantes não-nativos de inglês em ambientes corporativos.",
+                digitalCategory13Title: "Habilidades de Fala para Ambientes Corporativos",
+                digitalCategory13Item1: "Ganhe confiança e clareza no inglês falado, vital para apresentações, reuniões de equipe, interações com clientes e comunicação profissional diária.",
+                digitalCategory14Title: "Escuta Ativa e Compreensão",
+                digitalCategory14Item1: "Desenvolva habilidades cruciais de escuta ativa para entender instruções, feedback e participar efetivamente de discussões em um contexto de negócios.",
+                digitalCategory15Title: "Compreensão de Leitura Profissional",
+                digitalCategory15Item1: "Melhore sua capacidade de compreender documentos de negócios complexos, relatórios, e-mails e publicações da indústria, necessário para se manter informado e participar efetivamente.",
+                digitalCategory16Title: "Escrita de Negócios Eficaz",
+                digitalCategory16Item1: "Aprenda a comunicação escrita clara e concisa, com foco em e-mails, relatórios e outras correspondências comerciais para transmitir informações com precisão e profissionalismo.",
+                digitalCategory17Title: "Comunicação Interpessoal e Intercultural",
+                digitalCategory17Item1: "Construa rapport, navegue por diferenças culturais e entenda dicas não-verbais cruciais para trabalho em equipe eficaz, colaboração e relacionamentos profissionais.",
+                digitalCategory18Title: "Coaching de Apresentação Impactante",
+                digitalCategory18Item1: "A capacidade de fazer apresentações envolventes e informativas é crucial para compartilhar ideias e perspectivas.",
+                digitalCategory19Title: "Resolução de Problemas e Articulação",
+                digitalCategory19Item1: "Aprimore sua capacidade de articular problemas e soluções de forma clara e concisa em inglês, vital para o trabalho em equipe e tomada de decisões eficazes.",
+                testimonialsHeadline: "O Que Meus Clientes Dizem",
+                testimonial1Text: "James transformou minha rede doméstica caótica em um sistema contínuo. Seu suporte remoto para a integração da minha casa inteligente foi incrivelmente eficiente e claro. Altamente recomendado!",
+                testimonial1Author: "Sarah L., Austin, TX, EUA",
+                testimonial2Text: "Como proprietário de uma pequena empresa, eu precisava de uma estratégia robusta de cibersegurança. James forneceu excelentes soluções de criptografia de dados e unidades, me dando uma imensa tranquilidade. Sua experiência é incomparável.",
+                testimonial2Author: "Mark T., Chicago, IL, EUA",
+                testimonial3Text: "O treinamento personalizado de dispositivos que recebi mudou o jogo. Finalmente entendi como aproveitar meu novo laptop para produtividade. A paciência e clareza de James tornaram o aprendizado agradável.",
+                testimonial3Author: "Emily R., Miami, FL, EUA",
+                testimonial4Text: "Necesitaba ayuda con la gestión de mis cuentas de redes sociales para mi startup. James no solo las configuró perfectamente, sino que también me dio valiosos consejos para el análisis. ¡Un verdadero experto digital!",
+                testimonial4Author: "Diego M., Buenos Aires, Argentina",
+                testimonial5Text: "O suporte do James para a otimização do meu home office foi excepcional. Ele me ajudou a escolher os componentes certos e a configurar tudo para máxima produtividade. Recomendo muito para quem busca soluções de TI de alto nível.",
+                testimonial5Author: "Ana P., Curitiba, Brasil",
+                scheduleNowButtonServices: "Agende Sua Consulta Agora",
+                contactHeadline: "Desbloqueie Seu Potencial Tecnológico: Agende uma Consulta.",
+                contactIntro: "Vamos nos conectar e discutir como posso ajudá-lo a alcançar seus objetivos tecnológicos. Agende uma consulta gratuita ou entre em contato diretamente.",
             },
             es: {
-                pageTitle: "Soluciones Tecnológicas Remotas Globales",
+                pageTitle: "Lesesne Tech Solutions",
                 navHome: "Inicio",
                 navAbout: "Sobre Mí",
                 navServices: "Servicios",
-                navContact: "Contacto", // UPDATED NAV LINK
-                homeHeadline: "Soporte Técnico Remoto de Clase Mundial.<br class='hidden md:block'>Más de 15 Años de Experiencia en 10 Países.",
-                homeBody: "Deja de luchar con la tecnología. Obtén soporte individual de primera de un experto que ha resuelto con éxito problemas técnicos complejos para clientes en todo el mundo, de forma totalmente remota. Desde Curitiba hasta Nueva York, ofrecemos soluciones claras y duraderas para tu hogar y negocio.",
-                homeExpertise: "Nuestra Experiencia: Consultoría Estratégica de TI | Diseño Web Personalizado y SEO | Actualizaciones de Hardware | Soporte Apple y Microsoft",
-                homePayments: "Pagos: Aceptamos las principales tarjetas de crédito y opciones de pago locales para nuestros clientes globales.",
-                aboutHeadline: "Un Experto Global, Tu Solución Local.",
-                aboutBody1: "Durante más de 15 años, me he especializado en una cosa: proporcionar soporte de TI de nivel experto de forma totalmente remota. Este viaje me ha permitido asociarme con clientes en más de 10 países, ayudándolos a superar obstáculos técnicos y alcanzar sus objetivos desde miles de kilómetros de distancia.",
-                aboutBody2: "Mi experiencia no es solo técnica; se trata de comprender diferentes necesidades, comunicarse claramente entre culturas y construir una confianza que trasciende fronteras. Ya sea que esté construyendo un sitio web para un cliente en Europa, actualizando una Mac para un creativo en Australia o proporcionando una estrategia de TI para una empresa en EE. UU., mi compromiso es el mismo: ofrecer soluciones efectivas, confiables y personalizadas.",
-                servicesMainHeadline: "Soluciones Digitales y Tecnológicas Integrales",
-                servicesIntro: "Ofrecemos un espectro completo de soporte de TI remoto, consultoría y soluciones digitales tanto para individuos como para empresas en todo el mundo. Nuestra entrega de servicio flexible incluye **asistencia remota conveniente, reparaciones eficientes in situ y servicios completos en tienda** para satisfacer sus necesidades únicas.",
-                servicesCategory1Title: "Soporte TI y Resolución de Problemas",
-                servicesCategory1Item1: "Soporte de Mesa de Ayuda",
-                servicesCategory1Item2: "Soporte para PC, Mac, Portátiles y Sobremesa",
-                servicesCategory1Item3: "Soporte para Móviles y Tabletas",
-                servicesCategory1Item4: "Soporte de Software y Aplicaciones (Microsoft 365, Adobe)",
-                servicesCategory1Item5: "Seguridad y Protección de Datos (Eliminación de Virus, Seguridad en Línea)",
-                servicesCategory1Item6: "Resolución de Problemas de Impresoras y Dispositivos",
-                servicesCategory1Item7: "Soluciones Comunes de Software",
-                servicesCategory1Item8: "Reparación y Diagnóstico de Hardware (In Situ y en Tienda)",
+                navContact: "Contacto",
+                homeHeadline: "Soporte Técnico Remoto Experto.<br class=\"hidden md:block\">Más de 15 Años de Experiencia Comprobada.",
+                homeBody: "¿Cansado de los dolores de cabeza tecnológicos? Experimenta un soporte técnico premium y personalizado de un experto americano. Con más de 15 años de éxito comprobado, transformo tus desafíos digitales en soluciones fluidas, sirviendo a clientes de forma remota desde Curitiba hasta Nueva York y más allá.",
+                homeExpertise: "Mi Experiencia: Consultoría Estratégica de TI | Web y SEO Personalizados | Actualizaciones de Hardware | Soporte Apple y Microsoft",
+                homePayments: "Pagos: Acepto con orgullo las principales tarjetas de crédito y opciones de pago locales para mis clientes globales.",
+                aboutHeadline: "Tu Experto Tecnológico Americano, Conectado Globalmente.",
+                aboutBody1: "Aprovechando <strong>más de 15 años como un experimentado profesional tecnológico estadounidense</strong>, ofrezco un soporte de TI remoto sin igual. Mi amplia experiencia garantiza soluciones de nivel experto, superando las brechas geográficas para servir a clientes a nivel mundial.",
+                aboutBody2: "Mi experiencia no es solo técnica; se trata de comprender diversas necesidades, comunicarse claramente entre culturas y construir una confianza que trasciende fronteras. Ya sea que esté construyendo un sitio web para un cliente en Europa, actualizando una Mac para un creativo en Australia o brindando estrategia de TI para un negocio en los EE. UU., mi compromiso es el mismo: ofrecer soluciones efectivas, confiables y personalizadas.",
+                howItWorksHeadline: "Mi Proceso Sencillo para Resolver Tus Desafíos Tecnológicos",
+                howItWorksStep1Title: "1. Agenda Tu Consulta",
+                howItWorksStep1Desc: "Reserva un horario conveniente a través de mi enlace de Calendly. Discutiremos tus necesidades y definiremos el mejor enfoque.",
+                howItWorksStep2Title: "2. Diagnóstico y Plan Experto",
+                howItWorksStep2Desc: "Diagnosticaré el problema de forma remota o evaluaré tu proyecto, proporcionando un plan de acción claro y precios transparentes.",
+                howItWorksStep3Title: "3. Implementar y Optimizar",
+                howItWorksStep3Desc: "Las soluciones se implementan de manera eficiente, seguidas de pruebas y optimización para garantizar resultados duraderos y tu completa satisfacción.",
+                servicesMainHeadline: "Mis Soluciones Tecnológicas Integrales",
+                servicesIntro: "Ofrezco un espectro completo de soporte de TI remoto, consultoría y soluciones digitales para individuos y empresas en todo el mundo. Mi entrega de servicio flexible incluye <strong>asistencia remota conveniente, reparaciones eficientes en el sitio y servicios integrales en tienda</strong> para satisfacer sus necesidades únicas.",
+                servicesCategory1Title: "Soporte y Resolución de Problemas de TI",
+                servicesCategory1Item1: "Soporte de Mesa de Ayuda y Asistencia Remota",
+                servicesCategory1Item2: "Soporte para PC, Mac, Laptop y Desktop",
+                servicesCategory1Item3: "Soporte de Software y Aplicaciones (Microsoft 365, aplicaciones locales, Chrome, Internet Explorer, Adobe)",
+                servicesCategory1Item4: "Seguridad y Protección de Datos (Eliminación de Virus, Práctica y Prevención de Seguridad en Línea, Cifrado de Datos y Unidades)",
+                servicesCategory1Item5: "Reparación y Diagnóstico de Hardware (En Sitio y en Tienda)",
                 servicesCategory2Title: "Actualizaciones y Optimización del Sistema",
-                servicesCategory2Item1: "Actualizaciones de Hardware (RAM, SSD, Gráficos)",
-                servicesCategory2Item2: "Actualizaciones de Software y SO",
-                servicesCategory2Item3: "Optimización y Ajustes de Dispositivos",
-                servicesCategory2Item4: "Aumento de Velocidad del Computador",
+                servicesCategory2Item1: "Actualizaciones de Hardware (RAM, SSD, Tarjetas Gráficas)",
+                servicesCategory2Item2: "Actualizaciones de Software y Sistema Operacional",
+                servicesCategory2Item3: "Otimización de Dispositivos y Ajustes de Rendimiento",
+                servicesCategory2Item4: "Aumento de Velocidade y Eficiencia del Ordenador",
                 servicesCategory3Title: "Presencia Web y Crecimiento Digital",
-                servicesCategory3Item1: "Construcción de Sitios Web Personalizados",
-                servicesCategory3Item2: "Optimización para Motores de Búsqueda (SEO)",
-                servicesCategory3Item3: "Mantenimiento y Seguridad de Sitios Web",
+                servicesCategory3Item1: "Diseño y Desarrollo de Sitios Web Personalizados",
+                servicesCategory3Item2: "Estrategias de Optimización para Motores de Búsqueda (SEO)",
+                servicesCategory3Item3: "Mantenimiento de Sitios Web y Auditorías de Seguridad",
+                servicesCategory3Item4: "Creación y Gestión de Cuentas de Redes Sociales",
+                servicesCategory3Item5: "Análisis y Consultoría de Redes Sociales",
                 servicesCategory4Title: "Consultoría Estratégica de TI",
-                servicesCategory4Item1: "Consultoría de TI y Tecnología",
-                servicesCategory4Item2: "Construcción de PCs a Medida",
-                servicesCategory4Item3: "Configuración Profesional de Streaming",
+                servicesCategory4Item1: "Servicios de Asesoramiento en TI y Tecnología",
+                servicesCategory4Item2: "Construcción de PCs/Servidores Personalizados y Selección de Componentes, virtualización, mantenimiento",
+                servicesCategory4Item3: "Configuración Profesional de Streaming y Oficina en Casa",
                 servicesCategory4Item4: "Planificación de Continuidad del Negocio y Recuperación ante Desastres",
-                servicesCategory5Title: "Gestión de TI y Operaciones",
-                servicesCategory5Item1: "Servicios de TI Gestionados",
-                servicesCategory5Item2: "Gestión de Proveedores",
-                servicesCategory5Item3: "Informes y Automatización de TI",
-                servicesCategory6Title: "Soluciones en la Nube y de Red",
-                servicesCategory6Item1: "Servicios de Computación en la Nube",
-                servicesCategory6Item2: "Gestión de Redes",
-                servicesCategory6Item3: "VoIP y Comunicaciones Unificadas",
-                servicesCategory7Title: "Desarrollo de Software",
-                servicesCategory7Item1: "Desarrollo de Software y Aplicaciones Personalizadas",
-                servicesCategory8Title: "Gestión de Datos y Capacitación",
-                servicesCategory8Item1: "Copia de Seguridad y Recuperación de Datos",
-                servicesCategory8Item2: "Gestión de Dispositivos Móviles y Redes",
-                servicesCategory8Item3: "Configuración de Copia de Seguridad Automática de Fotos",
-                servicesCategory8Item4: "Configuración de Nuevos Dispositivos",
-                servicesCategory8Item5: "Capacitación Tecnológica Personalizada",
-
-                // NEW: Contact Section Language Keys
-                contactHeadline: "Agenda Tu Consulta",
-                contactIntro: "Listo para discutir tus necesidades tecnológicas? Utiliza el calendario a continuación para reservar un horario conveniente para una consulta personalizada. ¡Espero conectar contigo!",
-
-                footerCopyright: "&copy; 2024 Soluciones Tecnológicas Remotas Globales. Todos los derechos reservados.",
-                footerTagline: "Diseñado con experiencia y cuidado."
+                servicesCategory8Title: "Gestión de Datos y Formación",
+                servicesCategory8Item1: "Soluciones de Copia de Seguridad y Recuperación de Datos",
+                servicesCategory8Item2: "Gestión de Datos de Dispositivos Móviles, Tabletas (Apple, Samsung y más), Laptops/desktops",
+                servicesCategory8Item3: "Configuración y Gestión de Red (Hogar, SMB y Empresa)",
+                servicesCategory8Item4: "Configuración y Gestión de Usuarios y Grupos (Active Directory, Workgroup, Gestión de Acceso de Identidad, MDM)",
+                servicesCategory8Item5: "Configuración e Instalación de Nuevos Dispositivos",
+                servicesCategory8Item6: "Capacitación y Talleres de Tecnología Personalizados",
+                servicesCategory5Title: "TI Gestionada y Soluciones en la Nube",
+                servicesCategory5Item1: "Servicios de TI Gestionados y Monitoreo Remoto",
+                servicesCategory5Item2: "Servicios de Computación en la Nube (Configuración, Migración, Gestión)",
+                servicesCategory5Item3: "Infraestructura y Seguridad de Red",
+                servicesCategory5Item4: "Gestión de Proveedores y Automatización de TI",
+                digitalSkillsHeadline: "Habilidades Digitales y Alfabetización",
+                digitalSkillsIntro: "Desmitifica la tecnología y adquiere habilidades digitales esenciales con un profesional a tu lado. Estas sesiones integrales de tutoría y clases en línea son perfectas para cualquiera que busque comprender el panorama digital moderno, incluyendo a profesionales no nativos de inglés que necesitan dominar la comunicación corporativa en inglés, crucial para el éxito profesional en entornos globales.",
+                digitalCategory1Title: "Fundamentos de TI y Alfabetización Digital",
+                digitalCategory1Item1: "Desde la comprensión de los conceptos básicos de tu computadora hasta la navegación segura por internet, cubrimos conceptos esenciales de TI.",
+                digitalCategory1Item2: "Aprende sobre sistemas operativos, redes básicas y cómo usar eficazmente las herramientas digitales comunes.",
+                digitalCategory2Title: "Herramientas de Productividad y Dominio de Software",
+                digitalCategory2Item1: "Desbloquea el poder de software esencial como Microsoft Office (Word, Excel, PowerPoint) y Google Workspace (Docs, Sheets, Slides).",
+                digitalCategory2Item2: "Te mostraremos cómo usar estas herramientas de manera eficiente para el trabajo, el estudio o la organización personal.",
+                digitalCategory3Title: "Seguridad en Línea y Conceptos Básicos de Ciberseguridad",
+                digitalCategory3Item1: "Protégete en la era digital. Aprende prácticas críticas de ciberseguridad, cómo reconocer amenazas en línea, gestionar tu privacidad y mantener segura tu información personal.",
+                digitalCategory4Title: "Introducción a Carreras Tecnológicas y Perspectivas de la Industria",
+                digitalCategory4Item1: "Curioso sobre la industria tecnológica? Proporcionamos explicaciones claras y directas de diferentes roles tecnológicos (por ejemplo, gerente de producto, UX designer, data analyst) y discutimos las tendencias actuales de la industria, ayudándote a explorar posibles trayectorias profesionales.",
+                digitalCategory5Title: "Configuración y Gestión de Cuentas Digitales en Línea",
+                digitalCategory5Item1: "Configuraré, configuraré y gestionaré tus cuentas en línea esenciales (correo electrónico, almacenamiento en la nube, perfiles de redes sociales) para una seguridad y accesibilidad óptimas.",
+                digitalCategory6Title: "Recomendaciones de Dispositivos Económicos",
+                digitalCategory6Item1: "Recibe recomendaciones imparciales y económicas para laptops, computadoras de escritorio, dispositivos móviles y periféricos, asegurando que inviertas en tecnología que realmente satisfaga tus necesidades sin gastar de más.",
+                digitalCategory7Title: "Integración y Automatización del Hogar Inteligente",
+                digitalCategory7Item1: "Transforma tu hogar en un espacio inteligente y conectado. Te ayudaré a seleccionar, configurar e integrar dispositivos inteligentes (iluminación, seguridad, termostatos, sistemas de entretenimiento) para mayor comodidad, eficiencia y tranquilidad.",
+                digitalCategory8Title: "Optimización del Almacenamiento en la Nube y Sincronización de Datos",
+                digitalCategory8Item1: "Más allá de las copias de seguridad básicas, optimizaré tus soluciones de almacenamiento en la nube (Google Drive, OneDrive, Dropbox, iCloud) para una sincronización de datos perfecta en todos tus dispositivos, un uso compartido de archivos eficiente y una seguridad de datos sólida.",
+                digitalCategory9Title: "Configuración de Estación de Trabajo Remota y Oficina en Casa",
+                digitalCategory9Item1: "Diseña y optimiza tu entorno de trabajo remoto ideal. Desde la configuración ergonómica y la selección de hardware de alto rendimiento hasta la conectividad de red confiable y la integración de herramientas de colaboración, me aseguro de que tu oficina en casa sea productiva y profesional.",
+                digitalCategory10Title: "Organización y Desorden Digital",
+                digitalCategory10Item1: "Recupera tu vida digital. Te ayudaré a organizar archivos, limpiar tu bandeja de entrada, administrar fotos digitales y optimizar tu huella digital para mejorar la eficiencia y reducir el estrés.",
+                digitalCategory11Title: "Auditoría de TI y Estrategia para Pequeñas Empresas",
+                digitalCategory11Item1: "Para pequeñas y medianas empresas, ofrezco auditorías exhaustivas de infraestructura de TI, identificando vulnerabilidades y recomendando hojas de ruta tecnológicas estratégicas para mejorar la eficiencia, la seguridad y la escalabilidad.",
+                digitalCategory12Title: "Inglés de Negocios para Profesionales",
+                digitalCategory12Item1: "Dominar el vocabulario, las frases y los estilos de comunicación específicos de los contextos empresariales es esencial para los hablantes no nativos de inglés en entornos corporativos.",
+                digitalCategory13Title: "Habilidades para Hablar en Entornos Corporativos",
+                digitalCategory13Item1: "Gana confianza y claridad al hablar en inglés, vital para presentaciones, reuniones de equipo, interacciones con clientes y la comunicación profesional diaria.",
+                digitalCategory14Title: "Escucha Activa y Comprensión",
+                digitalCategory14Item1: "Desarrolla habilidades cruciales de escucha activa para comprender instrucciones, comentarios y participar eficazmente en discusiones dentro de un contexto empresarial.",
+                digitalCategory15Title: "Comprensión de Lectura Profesional",
+                digitalCategory15Item1: "Mejora tu capacidad para comprender documentos comerciales complejos, informes y correos electrónicos, necesario para mantenerse informado y participar eficazmente.",
+                digitalCategory16Title: "Escritura Comercial Eficaz",
+                digitalCategory16Item1: "Aprende una comunicación escrita clara y concisa, centrándote en correos electrónicos, informes y otra correspondencia comercial para transmitir información de forma precisa y profesional.",
+                digitalCategory17Title: "Comunicación Interpersonal e Intercultural",
+                digitalCategory17Item1: "Establece una buena relación, navega por las diferencias culturales y comprende las señales no verbales cruciales para el trabajo en equipo eficaz, la colaboración y las relaciones profesionales.",
+                digitalCategory18Title: "Coaching de Presentaciones Impactantes",
+                digitalCategory18Item1: "La capacidad de realizar presentaciones atractivas e informativas es crucial para compartir ideas y perspectivas.",
+                digitalCategory19Title: "Resolución de Problemas y Articulación",
+                digitalCategory19Item1: "Mejora tu capacidad para articular problemas y soluciones de forma clara y concisa en inglés, vital para un trabajo en equipo y una toma de decisiones eficaces.",
+                testimonialsHeadline: "Lo Que Dicen Mis Clientes",
+                testimonial1Text: "James transformó mi caótica red doméstica en un sistema fluido. Su soporte remoto para la integración de mi hogar inteligente fue increíblemente eficiente y claro. ¡Altamente recomendado!",
+                testimonial1Author: "Sarah L., Austin, TX, EE. UU.",
+                testimonial2Text: "Como propietario de una pequeña empresa, necesitaba una estrategia sólida de ciberseguridad. James me proporcionó excelentes soluciones de cifrado de datos y unidades, lo que me dio una inmensa tranquilidad. Su experiencia es inigualable.",
+                testimonial2Author: "Mark T., Chicago, IL, EE. UU.",
+                testimonial3Text: "El entrenamiento personalizado de dispositivos que recibí fue un cambio de juego. Finalmente entiendo cómo aprovechar mi nueva computadora portátil para la productividad. La paciencia y claridad de James hicieron que el aprendizaje fuera agradable.",
+                testimonial3Author: "Emily R., Miami, FL, EE. UU.",
+                testimonial4Text: "Necesitaba ayuda con la gestión de mis cuentas de redes sociales para mi startup. James no solo las configuró perfectamente, sino que también me dio valiosos consejos para el análisis. ¡Un verdadero experto digital!",
+                testimonial4Author: "Diego M., Buenos Aires, Argentina",
+                testimonial5Text: "El soporte de James para la optimización de mi oficina en casa fue excepcional. Me ayudó a elegir los componentes adecuados y a configurar todo para una máxima productividad. Lo recomiendo encarecidamente a cualquiera que busque soluciones de TI de alto nivel.",
+                testimonial5Author: "Ana P., Curitiba, Brasil",
+                scheduleNowButtonServices: "Agenda Tu Consulta Ahora",
+                contactHeadline: "Desbloquea Tu Potencial Tecnológico: Agenda una Consulta.",
+                contactIntro: "Conectemos y hablemos de cómo puedo ayudarte a alcanzar tus objetivos tecnológicos. Agenda una consulta gratuita o contáctame directamente.",
             }
         };
 
         let currentLang = 'en'; // Default language
 
-        function applyLanguage(lang) {
+        /**
+         * Sets the language of the page based on the provided language code.
+         * Updates all elements with `data-lang-key` attributes and the active language button.
+         * Stores the selected language in local storage.
+         * @param {string} lang - The language code (e.g., 'en', 'pt', 'es').
+         */
+        function setLanguage(lang) {
             currentLang = lang;
+            // Iterate over all elements that have a 'data-lang-key' attribute
             document.querySelectorAll('[data-lang-key]').forEach(element => {
-                const key = element.dataset.langKey;
-                if (websiteContent[lang] && websiteContent[lang][key]) {
-                    // For specific elements like title, placeholder
-                    if (element.tagName === 'TITLE') {
-                        element.textContent = websiteContent[lang][key];
-                    } else if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                        element.placeholder = websiteContent[lang][key];
-                    } else {
-                        element.innerHTML = websiteContent[lang][key];
-                    }
+                const key = element.getAttribute('data-lang-key'); // Get the translation key
+                // Check if the translation exists for the current language and key
+                if (translations[lang] && translations[lang][key]) {
+                    // Use innerHTML to allow for HTML tags within the translated text (e.g., <strong>, <br>)
+                    element.innerHTML = translations[lang][key];
                 }
             });
+
+            // Update the 'lang' attribute of the HTML tag for better accessibility and SEO
+            document.documentElement.lang = lang;
+
+            // Update the visual active state of the language buttons
             document.querySelectorAll('.lang-button').forEach(button => {
                 if (button.dataset.lang === lang) {
-                    button.classList.add('bg-blue-500', 'text-white');
-                    button.classList.remove('bg-gray-200', 'hover:bg-gray-300');
+                    // Add active styling for the selected language button
+                    button.classList.add('bg-red-500', 'text-white');
+                    button.classList.remove('bg-gray-200', 'hover:bg-red-100', 'text-gray-800');
                 } else {
-                    button.classList.remove('bg-blue-500', 'text-white');
-                    button.classList.add('bg-gray-200', 'hover:bg-gray-300');
+                    // Remove active styling from other language buttons
+                    button.classList.remove('bg-red-500', 'text-white');
+                    button.classList.add('bg-gray-200', 'hover:bg-red-100', 'text-gray-800');
                 }
             });
+
+            // Store the selected language in local storage so it persists across sessions
+            localStorage.setItem('preferredLang', lang);
         }
 
-        // Apply default language on load
+        // Add click event listeners to all language buttons
+        document.querySelectorAll('.lang-button').forEach(button => {
+            button.addEventListener('click', (event) => {
+                // Call setLanguage with the language code from the button's 'data-lang' attribute
+                setLanguage(event.target.dataset.lang);
+            });
+        });
+
+        // DOMContentLoaded ensures the script runs after the entire HTML document has been loaded
         document.addEventListener('DOMContentLoaded', () => {
-            applyLanguage(currentLang);
+            // Check if a preferred language is stored in local storage
+            const storedLang = localStorage.getItem('preferredLang');
+            if (storedLang && translations[storedLang]) {
+                // If a preferred language is found and valid, set it
+                setLanguage(storedLang);
+            } else {
+                // Otherwise, set the default language (English)
+                setLanguage(currentLang);
+            }
 
-            // Event listeners for language buttons
-            document.querySelectorAll('.lang-button').forEach(button => {
-                button.addEventListener('click', () => {
-                    applyLanguage(button.dataset.lang);
-                });
-            });
+            // --- Navigation Active Link Logic ---
+            const navLinks = document.querySelectorAll('.nav-link'); // All navigation links
+            const sections = document.querySelectorAll('main section'); // All main content sections
 
-            // Smooth scrolling for navigation
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                    // Close mobile menu after clicking a link
-                    if (mobileMenu.classList.contains('block')) {
-                        mobileMenu.classList.remove('block');
-                        mobileMenu.classList.add('hidden');
-                    }
-                });
-            });
-
-            // Mobile menu toggle
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                mobileMenu.classList.toggle('block');
-            });
-
-            // Highlight active nav link on scroll
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-
-            window.addEventListener('scroll', () => {
-                let current = '';
+            /**
+             * Updates the 'active' class on navigation links based on current scroll position.
+             */
+            function updateActiveNavLink() {
+                let currentActive = ''; // To store the ID of the currently active section
                 sections.forEach(section => {
-                    const sectionTop = section.offsetTop - 80; // Adjust for fixed header
+                    // Calculate section top position, adjusting for the fixed header height
+                    const sectionTop = section.offsetTop - 70;
                     const sectionHeight = section.clientHeight;
-                    if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-                        current = section.getAttribute('id');
+                    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                        currentActive = section.id; // Set the current active section ID
                     }
                 });
 
+                // Remove 'active' class from all links and add it to the current active one
                 navLinks.forEach(link => {
                     link.classList.remove('active');
-                    if (link.getAttribute('href').includes(current)) {
+                    // Check if the link's href includes the ID of the current active section
+                    if (link.href.includes(currentActive)) {
                         link.classList.add('active');
                     }
+                });
+            }
+
+            // Initial call to set the active link on page load
+            updateActiveNavLink();
+
+            // Add scroll event listener to update active link as the user scrolls
+            window.addEventListener('scroll', updateActiveNavLink);
+
+            // --- Mobile Menu Functionality ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button'); // Hamburger icon button
+            const mobileMenu = document.getElementById('mobile-menu'); // The mobile menu dropdown
+
+            // Toggle mobile menu visibility on button click
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden'); // Toggles the 'hidden' Tailwind class
+            });
+
+            // Close mobile menu when a navigation link inside it is clicked
+            mobileMenu.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden'); // Hide the mobile menu
                 });
             });
         });
     </script>
 </body>
 </html>
- 
